@@ -1,53 +1,153 @@
 :root {
+  --bg: #6E6E6D;
+  --secondary-bg: #6E6E6D;
+  --heading-color: #FAD0C9;
+  --text: #FAD0C9;
+  --primary: #FAD0C9;
+  --accent: #FAD0C9;
+  --border-color: #FAD0C9;
+  --box-shadow-color: rgba(0, 0, 0, 0.08);
 
-    --bg-dark: #121212;
-    --secondary-bg-dark: #1e1e1e;
-    --heading-dark: #e0e0e0;
-    --text-dark: #b0b0b0;
-    --primary-dark: #5e6be2; 
-    --accent-dark: #e25e6b; 
-    --border-dark: #333333;
-    --box-shadow-dark: rgba(0, 0, 0, 0.4);
-
-
-    --bg-light: #ffffff;
-    --secondary-bg-light: #f5f5f5;
-    --heading-light: #333333;
-    --text-light: #555555;
-    --primary-light: #6a74f4; 
-    --accent-light: #f46a74; 
-    --border-light: #e0e0e0;
-    --box-shadow-light: rgba(0, 0, 0, 0.1);
-
-
-    --bg: var(--bg-light);
-    --secondary-bg: var(--secondary-bg-light);
-    --heading-color: var(--heading-light);
-    --text: var(--text-light);
-    --primary: var(--primary-light);
-    --accent: var(--accent-light);
-    --border-color: var(--border-light);
-    --box-shadow-color: var(--box-shadow-light);
-
-
-    --font-size-base: 1.1rem;
-    --font-size-lg: 1.25rem;
-    --font-size-xl: 1.5rem;
-    --font-size-2xl: 2rem;
-    --font-size-3xl: 2.5rem;
-    --font-size-4xl: 3rem;
-    --font-size-5xl: 3.5rem;
+  --font-size-base: 1.1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+  --font-size-4xl: 3rem;
+  --font-size-5xl: 3.5rem;
 }
 
-body.dark {
-    --bg: var(--bg-dark);
-    --secondary-bg: var(--secondary-bg-dark);
-    --heading-color: var(--heading-dark);
-    --text: var(--text-dark);
-    --primary: var(--primary-dark);
-    --accent: var(--accent-dark);
-    --border-color: var(--border-dark);
-    --box-shadow-color: var(--box-shadow-dark);
+/* Global */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: var(--font-size-base);
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Section Base */
+.section-container {
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 4rem 2rem;
+}
+
+/* Headings & Tags */
+h1, h2, h3, h4, h5, h6,
+a, i, .fas, .fab, label {
+  color: var(--primary);
+}
+
+/* Taglines and Call to Action */
+.tagline, .call-to-action {
+  font-size: var(--font-size-lg);
+  color: var(--text);
+  font-weight: 400;
+}
+
+/* Buttons */
+.btn.primary-btn {
+  background-color: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 0.75rem 1.5rem;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.btn.primary-btn:hover {
+  background-color: var(--primary);
+  color: var(--bg);
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.feature-item {
+  background-color: var(--secondary-bg);
+  padding: 1.8rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px var(--box-shadow-color);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.feature-item.is-animated {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px color-mix(in srgb, var(--box-shadow-color) 70%, var(--primary) 10%);
+}
+
+.feature-item h3 {
+  font-size: var(--font-size-xl);
+  color: var(--primary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.feature-item p {
+  font-size: var(--font-size-base);
+  color: var(--text);
+  margin-bottom: 0;
+}
+
+.feature-item i {
+  color: var(--primary);
+  font-size: 1.2em;
+}
+
+/* Contact Form */
+.contact-form input,
+.contact-form textarea {
+  background-color: transparent;
+  border: 2px solid var(--border-color);
+  color: var(--text);
+  padding: 0.75rem;
+  font-size: var(--font-size-base);
+  border-radius: 6px;
+  width: 100%;
+}
+
+.contact-form label {
+  color: var(--primary);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 40%, transparent);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--bg);
+  color: var(--text);
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: var(--font-size-base);
 }
 
 * {
@@ -175,50 +275,18 @@ a:hover {
     color: var(--primary);
 }
 
-/* Theme Toggle Button */
-#themeToggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: var(--text);
-    margin-left: 2rem;
-    padding: 0.5rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-#themeToggle:hover {
-    color: var(--primary);
-    background-color: color-mix(in srgb, var(--bg) 80%, var(--primary) 10%);
-}
-
-.theme-icon {
-    width: 24px;
-    height: 24px;
-}
-
-body.dark .moon-icon {
-    display: block;
-}
-
-body.dark .sun-icon {
-    display: none;
-}
-
-body .moon-icon {
-    display: none;
-}
-
-body .sun-icon {
-    display: block;
-}
-
-
 /* --- Hero Section --- */
+.highlighted-name {
+  color: var(--primary);
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.highlighted-name::after {
+  content: none;
+}
+
 .hero {
     display: flex;
     flex-direction: row;
@@ -311,21 +379,51 @@ body .sun-icon {
     transform: translateY(-3px);
 }
 
-.socials {
-    display: flex;
-    gap: 1.5rem;
+/* Base styling for all social icons */
+.socials a {
+  color: #FAD0C9;
+  margin-right: 16px;
+  display: inline-block;
+  transition: color 0.3s ease;
 }
 
-.social-icon {
-    font-size: 2.2rem;
-    color: var(--heading-color); 
-    transition: color 0.3s ease, transform 0.3s ease;
+/* Remove extra margin on last icon */
+.socials a:last-child {
+  margin-right: 0;
 }
 
-.social-icon:hover {
-    color: var(--primary); 
-    transform: translateY(-5px);
+/* Hover effect for all icons */
+.socials a:hover {
+  color: #fcb5ab; /* Optional: softer/darker shade for hover */
 }
+
+/* HackerRank SVG styling */
+.social-icon-svg svg {
+  width: 24px;
+  height: 24px;
+  fill: #FAD0C9;
+  transition: fill 0.3s ease;
+}
+
+/* Change fill color on hover */
+.social-icon-svg:hover svg {
+  fill: #fcb5ab; /* match with hover color if desired */
+}
+/* Style all SVG icons inside .social-icon-svg */
+.social-icon-svg svg {
+  width: 24px;
+  height: 24px;
+  fill: #FAD0C9; /* Light pink-violet tone */
+  transform: translateY(8px); 
+  transition: fill 0.3s ease;
+}
+
+/* On hover, change fill color */
+.social-icon-svg:hover svg {
+  fill: #fcb5ab; /* Optional: warmer hover tone */
+}
+
+
 
 .hero .image-wrapper {
     width: clamp(250px, 40vw, 400px); 
@@ -412,11 +510,11 @@ body .sun-icon {
 
 /* --- Skills Section --- */
 .skill-category {
-    background-color: var(--secondary-bg); 
-    border-radius: 10px; 
-    padding: 1.8rem 2rem; 
-    box-shadow: 0 5px 20px var(--box-shadow-color); 
-    border: 1px solid var(--border-color); 
+    background-color: var(--secondary-bg);
+    border-radius: 10px;
+    padding: 1.8rem 2rem;
+    box-shadow: 0 5px 20px var(--box-shadow-color);
+    border: 1px solid var(--border-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -437,44 +535,50 @@ body .sun-icon {
     gap: 0.8rem;
 }
 
-.skill-category h3 .fas, .skill-category h3 .fab {
+.skill-category h3 .fas,
+.skill-category h3 .fab {
     font-size: 1.5em;
-    color: var(--primary); 
+    color: var(--primary);
 }
 
+/* ✅ UL / LI alignment with tick icon */
 .skill-category ul {
-    list-style: none; 
+    list-style: none;
     padding: 0;
     margin: 0;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
 .skill-category ul li {
     font-size: var(--font-size-base);
     color: var(--text);
-    margin-bottom: 0.6rem; 
-    padding-left: 1.5rem;
+    margin-bottom: 0.65rem;
+    padding-left: 1.6rem;
     position: relative;
-    text-align: left; 
+    line-height: 1.6;
+    text-align: left;
 }
 
 .skill-category ul li:last-child {
-    margin-bottom: 0; 
+    margin-bottom: 0;
 }
 
 .skill-category ul li::before {
-    content: '\2022'; 
-    color: var(--primary); 
-    font-size: 1.2em;
+    content: '✓'; /* Clean checkmark */
     position: absolute;
     left: 0;
-    top: 0.15em; 
+    top: 0.05rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary);
+    line-height: 1.5;
 }
 
+/* Animated skill item blocks */
 .skill-item {
-    margin-bottom: 1rem; 
-    opacity: 0; 
-    transform: translateY(20px); 
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 .skill-item.is-animated {
@@ -483,6 +587,7 @@ body .sun-icon {
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
+/* Skill bar & level styling */
 .skill-name {
     display: block;
     font-size: var(--font-size-lg);
@@ -502,13 +607,13 @@ body .sun-icon {
 .skill-bar {
     height: 100%;
     background-color: var(--primary);
-    width: 0; 
+    width: 0;
     border-radius: 5px;
-    transition: width 1.5s ease-out; 
+    transition: width 1.5s ease-out;
 }
 
 .skill-item.is-animated .skill-bar {
-    width: var(--level); 
+    width: var(--level);
 }
 
 .skill-level-text {
@@ -670,10 +775,22 @@ body .sun-icon {
 }
 
 .hire-me-btn {
-    margin-top: 1.5rem; 
-    display: inline-block; 
+    margin-top: 1.5rem;
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--primary);
+    background-color: transparent;
+    color: var(--primary);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
-
+.hire-me-btn:hover {
+    background-color: var(--primary);
+    color: var(--bg); /* Adjust if your background is dark or light */
+}
 /* --- Experience--- */
 .timeline {
     position: relative;
@@ -816,6 +933,28 @@ body.dark .timeline-item:nth-child(odd) .timeline-content::after {
 body.dark .timeline-item:nth-child(even) .timeline-content::after {
     border-color: transparent var(--secondary-bg) transparent transparent; 
 }
+.certificate-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--primary);
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: color 0.3s ease;
+}
+
+.certificate-link:hover {
+  color: color-mix(in srgb, var(--primary) 85%, var(--text) 15%);
+  text-decoration: underline;
+}
+
+.external-icon {
+  font-size: 0.85em;
+  transform: translateY(-1px);
+}
+
 
 
 /* --- Responsive Adjustments for Timeline --- */
