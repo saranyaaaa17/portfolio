@@ -17,7 +17,6 @@ const pauseBeforeType = 400; // milliseconds
 
 function type() {
     const target = document.getElementById("typing");
-    // Ensure the target element exists and is connected to the DOM
     if (!target || !target.isConnected) return;
 
     const currentRole = roles[roleIndex];
@@ -44,7 +43,6 @@ function type() {
     setTimeout(type, delay);
 }
 
-
 // Initialize tsparticles function
 const initParticles = async () => {
     await tsParticles.load("tsparticles", {
@@ -57,7 +55,7 @@ const initParticles = async () => {
                 },
             },
             color: {
-                value: "var(--primary)",
+                value: "#00bcd4", // Replaced var(--primary) with a direct color for fallback
             },
             shape: {
                 type: "circle",
@@ -85,7 +83,7 @@ const initParticles = async () => {
             links: {
                 enable: true,
                 distance: 150,
-                color: "var(--primary)",
+                color: "#00bcd4", // Same here for consistency
                 opacity: 0.4,
                 width: 1,
             },
@@ -133,10 +131,8 @@ const initParticles = async () => {
     });
 };
 
-
 // DOMContentLoaded Listener for all initial setup
 document.addEventListener('DOMContentLoaded', () => {
-    // Theme Toggle Initialization
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme) {
         applyTheme(storedTheme);
@@ -155,64 +151,53 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Typing Animation Observer Initialization
     const typingTarget = document.getElementById("typing");
     if (typingTarget) {
-        const observer = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     type();
-                    observer.unobserve(entry.target); // Stop observing once animated
+                    obs.disconnect(); // Fixed: use observer.disconnect() instead of unobserve each
                 }
             });
-        }, { threshold: 0.8 }); // Trigger when 80% of target is visible
+        }, { threshold: 0.8 });
         observer.observe(typingTarget);
     }
 
-    // Initialize tsparticles (will run if #tsparticles div is present)
     if (typeof tsParticles !== 'undefined') {
         const particlesContainer = document.getElementById("tsparticles");
-        if (particlesContainer) { // Ensures the container exists on this page
+        if (particlesContainer) {
             initParticles();
         }
     } else {
         console.error("tsParticles library not loaded or available.");
     }
 
-
-    // Intersection Observer for 'animate-on-scroll' elements (for About, Projects, Experience, Opportunities)
     const animateElements = document.querySelectorAll('.animate-on-scroll');
-
     const animateObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const element = entry.target;
                 element.classList.add('is-animated');
 
-                // Special handling for skill bars
                 if (element.classList.contains('skill-item')) {
                     const skillBar = element.querySelector('.skill-bar');
-                    const level = skillBar.getAttribute('data-level');
+                    const level = skillBar?.getAttribute('data-level');
                     if (skillBar && level) {
-                        skillBar.style.setProperty('--level', level); // Set CSS variable
-                        // No need for skillBar.classList.add('is-animated'); here, as skill-item handles it.
+                        skillBar.style.setProperty('--level', level);
                     }
                 }
-                // Only unobserve if you want the animation to play once per page load
                 animateObserver.unobserve(element);
             }
         });
     }, {
-        root: null, // viewport as root
+        root: null,
         rootMargin: '0px',
-        threshold: 0.2 // Trigger when 20% of the element is visible
+        threshold: 0.2
     });
 
-    animateElements.forEach(element => {
-        animateObserver.observe(element);
-    });
+    animateElements.forEach(element => animateObserver.observe(element));
 
-    // Handle initial scroll to hash
     if (window.location.hash) {
         const targetElement = document.querySelector(window.location.hash);
         if (targetElement) {
@@ -222,41 +207,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-
     const skillsTrack = document.querySelector('.skills-track');
     const leftScrollBtn = document.querySelector('.scroll-button.left-arrow');
     const rightScrollBtn = document.querySelector('.scroll-button.right-arrow');
 
     if (skillsTrack && leftScrollBtn && rightScrollBtn) {
-        // Function to update button visibility based on scroll position
         const updateScrollButtons = () => {
-            if (skillsTrack.scrollLeft === 0) {
-                leftScrollBtn.classList.add('hidden');
-            } else {
-                leftScrollBtn.classList.remove('hidden');
-            }
-
-            if (Math.ceil(skillsTrack.scrollLeft + skillsTrack.clientWidth) >= skillsTrack.scrollWidth) {
-                rightScrollBtn.classList.add('hidden');
-            } else {
-                rightScrollBtn.classList.remove('hidden');
-            }
+            leftScrollBtn.classList.toggle('hidden', skillsTrack.scrollLeft === 0);
+            rightScrollBtn.classList.toggle('hidden', Math.ceil(skillsTrack.scrollLeft + skillsTrack.clientWidth) >= skillsTrack.scrollWidth);
         };
 
-        // Event listener for right scroll button
         rightScrollBtn.addEventListener('click', () => {
-            skillsTrack.scrollBy({
-                left: skillsTrack.clientWidth,
-                behavior: 'smooth'
-            });
+            skillsTrack.scrollBy({ left: skillsTrack.clientWidth, behavior: 'smooth' });
         });
 
-        // Event listener for left scroll button
         leftScrollBtn.addEventListener('click', () => {
-            skillsTrack.scrollBy({
-                left: -skillsTrack.clientWidth,
-                behavior: 'smooth'
-            });
+            skillsTrack.scrollBy({ left: -skillsTrack.clientWidth, behavior: 'smooth' });
         });
 
         skillsTrack.addEventListener('scroll', updateScrollButtons);
