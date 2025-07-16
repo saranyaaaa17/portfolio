@@ -22,17 +22,14 @@
       <li><a href="#skill-development">Skill Development</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button id="themeToggle" aria-label="Toggle Theme">
-      <svg class="theme-icon sun-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zm-9.193 9.193a1 1 0 001.414 1.414l.707-.707a1 1 0 00-1.414-1.414l-.707.707zm-.707-5.657a1 1 0 00-1.414 1.414l.707.707a1 1 0 101.414-1.414l-.707-.707zM10 18a1 1 0 01-1-1v-1a1 1 0 112 0v1a1 1 0 01-1 1z"></path></svg>
-      <svg class="theme-icon moon-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8 0 1010.586 10.586z"></path></svg>
-    </button>
   </nav>
 
   <main>
     <section class="hero" id="home">
       <div id="tsparticles"></div> <div class="text-content">
-        <h1>Hi there!</h1>
-        <h2 class="name">I'm Saranya Pothina</h2>
+        <h1 class="intro-heading">
+          Hi there, I'm <span class="highlighted-name">Saranya Pothina</span>
+        </h1>
         <p class="typing" id="typing"></p> <div class="buttons">
           <a href="#about" class="btn primary-btn">View Portfolio</a> 
           <a href="saranyaaresume.pdf" class="btn outline-btn" download>Download Resume</a>
@@ -44,12 +41,12 @@
           <a href="https://www.linkedin.com/in/saranya-pothina-806670274" target="_blank" aria-label="LinkedIn Profile">
               <i class="fab fa-linkedin-in social-icon"></i>
           </a>
-          <a href="https://twitter.com/saranyaaaa17" target="_blank" aria-label="X Profile (formerly Twitter)">
-              <i class="fab fa-x-twitter social-icon"></i>
-          </a>
-          <a href="https://instagram.com/saranyaaaa17" target="_blank" aria-label="Instagram Profile">
-              <i class="fab fa-instagram social-icon"></i>
-          </a>
+          <a href="https://www.hackerrank.com/profile/saranyapothina07" target="_blank" aria-label="HackerRank" class="social-icon-svg">
+  <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path d="M477.5 128.1L300.2 18.7a59.5 59.5 0 0 0-61.4 0L34.5 128.1A59.5 59.5 0 0 0 5 179.2v153.6c0 21.2 11.2 40.9 29.5 51.1l176.3 109.4a59.5 59.5 0 0 0 61.4 0l177.3-109.4A59.5 59.5 0 0 0 507 332.8V179.2c0-21.1-11.2-40.9-29.5-51.1zM340 352H172V160h56v144h56V160h56v192z"/>
+  </svg>
+</a>
+
         </div>
       </div>
       <div class="image-wrapper">
@@ -65,8 +62,9 @@
             </div>
             <div class="about-text-content animate-on-scroll" data-animation="fadeInUp">
                 <h3>Hi, I'm Saranya Pothina</h3>
-                <p>I'm an aspiring AI/ML Engineer, passionately diving deeper into building intelligent systems that solve complex, real-world problems. My journey involves mastering Deep Learning, Natural Language Processing, and Computer Vision, developing foundational skills with TensorFlow and PyTorch.</p>
-                <p>In addition to my AI/ML focus, I cultivate strong capabilities in Frontend Development and design principles. This holistic approach allows me to craft robust algorithms while ensuring intuitive and engaging user experiences. I am a dedicated, continuous learner, eager to contribute and innovate in AI.</p>
+                <p>As an aspiring AI/ML Engineer, I'm driven by a passion to grow by overcoming challenges and creating intelligent systems that address complex, real-world problems. My journey is focused on mastering Deep Learning, Natural Language Processing, and Computer Vision, with hands-on experience using frameworks like TensorFlow and PyTorch.
+                </p>
+                <p>Beyond AI/ML, I also bring a solid foundation in Frontend Development, enabling me to build user-friendly interfaces that complement my technical solutions. I’m a dedicated learner, always eager to grow and contribute in impactful ways.</p>
             </div>
         </div>
     </section>
@@ -82,17 +80,18 @@
         <div class="skills-track" id="skillsTrack">
 
             <div class="skill-category ml-ai-main-category animate-on-scroll">
-                <h3><i class="fas fa-brain"></i> Machine Learning & AI</h3>
-                <ul>
-                    <li>AI/ML Fundamentals</li>
-                    <li>Pandas</li>
-                    <li>TensorFlow</li>
-                    <li>Deep Learning Basics</li>
-                    <li>Natural Language Processing (NLP) Basics</li>
-                    <li>Data Preprocessing</li>
-                    <li>Model Evaluation</li>
-                </ul>
-            </div>
+    <h3><i class="fas fa-brain"></i> Machine Learning & AI</h3>
+    <ul>
+        <li>AI/ML Methodologies</li>
+        <li>Pandas</li>
+        <li>TensorFlow</li>
+        <li>Applied Deep Learning Principles</li>
+        <li>Essential NLP Skills</li>
+        <li>Data Preprocessing</li>
+        <li>Model Evaluation</li>
+    </ul>
+</div>
+
 
             <div class="skill-category animate-on-scroll">
                 <h3><i class="fas fa-code"></i> Languages</h3>
@@ -174,7 +173,7 @@
           <img src="responsivejs.jpg" alt="Responsive JS Project Image" class="project-image">
           <div class="project-info">
             <h3>Responsive JS</h3>
-            <p>This project showcases advanced front-end development techniques using CSS and JavaScript. It includes responsive design with media queries, interactive features like a quiz or image carousel, and dynamic content fetched from a public API.</p>
+            <p>Built a responsive front-end project using modern JavaScript and CSS. Features include adaptive layouts with media queries, dynamic components like image carousels and quizzes, and API integration for interactive real-time content rendering.</p>
             <a href="https://github.com/saranyaaaa17/responsive-js" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
@@ -183,7 +182,7 @@
           <img src="youtube.jpg" alt="YouTube Clone Project Image" class="project-image">
           <div class="project-info">
             <h3>YouTube Clone</h3>
-            <p>It's a YouTube website clone, demonstrating proficiency in recreating complex UI/UX and core functionalities of a video-sharing platform.</p>
+            <p>Recreated the structure and functionality of YouTube using HTML, CSS, and vanilla JavaScript. This clone includes responsive UI design, a simulated video player, and intuitive layout elements reflecting real-world platform behavior and UX principles.</p>
             <a href="https://github.com/saranyaaaa17/youtubeclone" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
@@ -191,8 +190,8 @@
         <div class="project-card animate-on-scroll">
           <img src="movie.jpg" alt="Movie Recommendation Image" class="project-image">
           <div class="project-info">
-            <h3>Movie Recommendation System</h3>
-            <p>Developed a foundational Movie Recommendation System using Python, Pandas, NumPy, and scikit-learn. This project demonstrates proficiency in data preprocessing, collaborative filtering (Item-Item), and model evaluation with RMSE.</p>
+            <h3>Movie Recommender</h3>
+            <p>Designed a recommendation engine with Python, NumPy, Pandas, and scikit-learn. Applied collaborative filtering (item-item), performed data wrangling, and evaluated the model using RMSE to suggest relevant movies based on user similarity patterns.</p>
             <a href="https://github.com/saranyaaaa17/Movie-Recommendation-System" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
@@ -203,105 +202,119 @@
       <h2 class="section-title">Seeking Opportunities</h2>
       <div class="opportunities-content">
         <p class="tagline">
-          As an enthusiastic and dedicated undergraduate, I am eager to apply my foundational AI/ML skills and passion for technology to real-world challenges.
+          As a committed undergraduate with a strong passion for AI/ML, I’m keen to translate my technical skills into impactful, real-world solutions.
         </p>
         <div class="features-grid">
           <div class="feature-item animate-on-scroll" data-animation="fadeInUp">
-            <h3><i class="fas fa-lightbulb"></i> Rapid Learner</h3>
-            <p>Quickly grasp new concepts, tools, and technologies to adapt to evolving project needs.</p>
-          </div>
-          <div class="feature-item animate-on-scroll" data-animation="fadeInUp" data-delay="100">
-            <h3><i class="fas fa-handshake"></i> Collaborative Team Player</h3>
-            <p>Effective communication and collaboration to achieve shared goals and deliver impactful solutions.</p>
-          </div>
-          <div class="feature-item animate-on-scroll" data-animation="fadeInUp" data-delay="200">
-            <h3><i class="fas fa-cogs"></i> Strong Fundamentals</h3>
-            <p>Solid understanding of AI/ML algorithms, data structures, and programming best practices.</p>
-          </div>
+  <h3><i class="fas fa-lightbulb"></i> Adaptive Mindset</h3>
+  <p>Adapt swiftly to new technologies, concepts, and workflows in dynamic environments.</p>
+</div>
+
+<div class="feature-item animate-on-scroll" data-animation="fadeInUp" data-delay="100">
+  <h3><i class="fas fa-handshake"></i> Team Collaborator</h3>
+  <p>Work effectively across teams to achieve shared goals through clear and active communication.</p>
+</div>
+
+<div class="feature-item animate-on-scroll" data-animation="fadeInUp" data-delay="200">
+  <h3><i class="fas fa-cogs"></i> Technical Grounding</h3>
+  <p>Strong grasp of core AI/ML concepts, algorithms, and clean coding practices for scalable solutions.</p>
+</div>
+
         </div>
         <p class="call-to-action">
-          I'm actively seeking internship opportunities where I can deeply apply my skills in AI/ML, Data Science, and Software Development. I'm especially keen on roles that allow me to contribute to both robust functionality and intuitive, engaging user experiences, thriving in a dynamic remote or hybrid setting where continuous learning is valued.
+          I'm actively seeking internship opportunities where I can contribute my expertise in AI/ML, Data Science, and Software Development. I aim to support the development of technically robust solutions with a strong focus on user experience, in forward-thinking remote or hybrid environments that foster continuous learning and innovation.
         </p>
         <a href="#contact" class="btn primary-btn hire-me-btn">OPEN TO OPPORTUNITIES</a>
       </div>
     </section>
 
     <section id="skill-development" class="section-container">
-      <h2 class="section-title">Skill Development & Practical Application</h2>
-      <div class="timeline">
+  <h2 class="section-title">Skill Development & Practical Application</h2>
+  <div class="timeline">
 
-        <div class="timeline-item animate-on-scroll">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <h4 class="timeline-date">July 2024</h4>
-            <h3>Python Full Stack Training (ExcelR)</h3>
-            <ul class="timeline-description">
-              <li>Completed an intensive training program focused on Python full-stack development, covering front-end and back-end technologies.</li>
-              <li>Gained proficiency in building dynamic web applications, integrating databases, and developing APIs through assessments and quizzes.</li>
-              <li>Acquired practical skills in various Python frameworks and tools essential for full-stack development.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item animate-on-scroll">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <h4 class="timeline-date">June 2025</h4>
-            <h3>Machine Learning Training (Internshala)</h3>
-            <ul class="timeline-description">
-              <li>Underwent comprehensive training in Machine Learning, mastering key algorithms and concepts.</li>
-              <li>Demonstrated theoretical knowledge and practical understanding through assessments and coding quizzes.</li>
-              <li>Developed foundational skills in data preprocessing, model training, and evaluation using relevant ML libraries.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item animate-on-scroll">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <h4 class="timeline-date">June 2025 - Present</h4>
-            <h3>Web Development Tasks (Apex Planet)</h3>
-            <ul class="timeline-description">
-              <li>Engaged in a task-based learning environment, applying and demonstrating web development skills.</li>
-              <li>Showcased practical problem-solving abilities by completing and submitting a series of diverse web development tasks.</li>
-              <li>Enhanced hands-on experience in front-end (and potentially back-end) challenges by meeting defined requirements.</li>
-            </ul>
-          </div>
-        </div>
-
+    <!-- Web Development -->
+    <div class="timeline-item animate-on-scroll">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <h4 class="timeline-date">May – July 2025</h4>
+        <h3>Web Development Internship (Apex Planet)</h3>
+        <ul class="timeline-description">
+          <li>Executed real-world web development tasks using HTML, CSS, and JavaScript.</li>
+          <li>Improved UI implementation and problem-solving through hands-on project execution.</li>
+        </ul>
+        <a href="https://drive.google.com/file/d/10Dnrap1FP5DQ1X1b4zPOP1RKJ5cWI7Im/view?usp=drivesdk"
+           target="_blank" class="certificate-link">
+          View Certificate <span class="external-icon" aria-hidden="true">↗</span>
+        </a>
       </div>
-    </section>
+    </div>
+
+    <!-- Machine Learning -->
+    <div class="timeline-item animate-on-scroll">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <h4 class="timeline-date">June – July 2025</h4>
+        <h3>Machine Learning Certification (Internshala)</h3>
+        <ul class="timeline-description">
+          <li>Completed training in ML algorithms and concepts using Python.</li>
+          <li>Applied skills through quizzes and hands-on model building with libraries like scikit-learn.</li>
+        </ul>
+        <a href="https://drive.google.com/file/d/10Fs8lqmXORQHnF9WMHGgYtVrzynP2lgN/view?usp=drivesdk"
+           target="_blank" class="certificate-link">
+          View Certificate <span class="external-icon" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Python Full Stack -->
+    <div class="timeline-item animate-on-scroll">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <h4 class="timeline-date">June – July 2024</h4>
+        <h3>Python Full Stack Certification (ExcelR)</h3>
+        <ul class="timeline-description">
+          <li>Trained in building full-stack applications with Python, databases, and REST APIs.</li>
+          <li>Gained practical skills through structured projects and module-based evaluations.</li>
+        </ul>
+        <a href="https://drive.google.com/file/d/1_SNB_v20U7W5bOD16Ab8eyl9lJPoBcJQ/view?usp=drivesdk"
+           target="_blank" class="certificate-link">
+          View Certificate <span class="external-icon" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
 
     <section id="contact" class="section-container">
-      <h2 class="section-title">Get in Touch</h2>
-      <p class="tagline">Have a question or a project idea? I'd love to hear from you!</p>
-      <div class="contact-content">
-        <form class="contact-form" action="https://formspree.io/f/xjkroned" method="POST">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="_replyto" required>
-          </div>
-          <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="_subject">
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
-          </div>
-          <button type="submit" class="btn primary-btn">Send Message</button>
-        </form>
+  <h2 class="section-title">Contact Me</h2>
+  <p class="tagline">Have a question or an opportunity to collaborate? I’d love to hear from you!</p>
+  <div class="contact-content">
+    <form class="contact-form" action="https://formspree.io/f/xjkroned" method="POST">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
       </div>
-    </section>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="_replyto" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </div>
+      <button type="submit" class="btn primary-btn">Send Message</button>
+    </form>
+  </div>
+</section>
   </main>
 
   <footer class="footer">
     <p>&copy; 2025 Saranya Pothina. All rights reserved.</p>
-    <p>Built with 💙, powered by curiosity, and driven by code.</p>
+    <p>Built with 💙</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@tsparticles/slim@3.1.0/tsparticles.slim.min.js"></script>
