@@ -92,6 +92,10 @@ label {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   opacity: 0;
   transform: translateY(20px);
+  /* Added for consistent height within the grid */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .feature-item.is-animated {
@@ -118,6 +122,9 @@ label {
   font-size: var(--font-size-base);
   color: var(--text);
   margin-bottom: 0;
+  /* Added for consistent height within the grid */
+  flex-grow: 1;
+  line-height: 1.6; /* Ensure good line spacing */
 }
 
 .feature-item i {
@@ -797,6 +804,10 @@ a:hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   opacity: 0;
   transform: translateY(20px);
+  /* Added these to explicitly make items fill height in grid */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .feature-item.is-animated {
@@ -828,6 +839,9 @@ a:hover {
   font-size: var(--font-size-base);
   color: var(--text);
   margin-bottom: 0;
+  /* Added this to allow paragraph to take available space */
+  flex-grow: 1;
+  line-height: 1.6; /* Ensure readability */
 }
 
 .hire-me-btn {
@@ -1142,7 +1156,6 @@ body.dark .timeline-item:nth-child(even) .timeline-content::after {
 /* Laptops and Tablets in Landscape (Larger Mobiles) */
 @media (max-width: 1024px) {
   .navbar ul {
-    /* Flex wrap for navigation items if too many */
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -1157,13 +1170,10 @@ body.dark .timeline-item:nth-child(even) .timeline-content::after {
 
   .hero {
     flex-direction: column-reverse;
-    /* Stack elements vertically */
     text-align: center;
     padding-top: 8rem;
-    /* Adjust for fixed navbar */
     gap: 1.5rem;
     min-height: unset;
-    /* Allow height to adjust based on content */
   }
 
   .hero .text-content {
@@ -1239,14 +1249,12 @@ body.dark .timeline-item:nth-child(even) .timeline-content::after {
   }
 
   .navbar {
-    /* Hide the main navigation links on smaller screens if you plan to use a hamburger menu */
     justify-content: space-between;
     padding: 0.8rem 1rem;
   }
 
   .nav-center {
     display: none;
-    /* Hide traditional nav links, typically replaced by a hamburger menu */
   }
 
   #themeToggle {
@@ -1272,13 +1280,11 @@ body.dark .timeline-item:nth-child(even) .timeline-content::after {
 
   .hero .buttons {
     flex-direction: column;
-    /* Stack buttons vertically */
     gap: 0.8rem;
   }
 
   .btn {
     width: 100%;
-    /* Make buttons full width */
     padding: 0.7rem 1.2rem;
   }
 
@@ -1332,14 +1338,24 @@ body.dark .timeline-item:nth-child(even) .timeline-content::after {
   .features-grid {
     gap: 1rem;
     margin-bottom: 1rem;
+    /* On mobile, stack feature items vertically if they become too narrow */
+    grid-template-columns: 1fr;
   }
 
   .feature-item {
     padding: 1.5rem;
+    /* Increased padding for better readability */
   }
 
   .feature-item h3 {
+    font-size: var(--font-size-xl); /* Kept larger heading */
     margin-bottom: 0.8rem;
+  }
+
+  .feature-item p {
+    font-size: var(--font-size-base); /* Slightly smaller, more readable on mobile */
+    line-height: 1.6; /* Good line spacing */
+    margin-bottom: 0;
   }
 
   .hire-me-btn {
@@ -1391,7 +1407,6 @@ body.dark .timeline-item:nth-child(even) .timeline-content::after {
 
   .skill-category {
     width: 250px;
-    /* Adjust width to fit more comfortably */
     padding: 1.5rem;
   }
 
@@ -1478,7 +1493,11 @@ body.dark .timeline-item:nth-child(even) .timeline-content::after {
 
   .skill-category {
     width: 200px;
-    /* Further reduce width for very small screens */
+  }
+  /* Opportunities section - specific adjustments for very small phones */
+  .feature-item p {
+    font-size: 0.9rem; /* Even smaller font for tiny screens */
+    line-height: 1.5;
   }
 }
 
