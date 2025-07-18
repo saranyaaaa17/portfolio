@@ -216,64 +216,90 @@ a:hover {
     background-color: var(--primary);
     border-radius: 2px;
 }
-
 /* --- Navbar --- */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: color-mix(in srgb, var(--bg) 90%, black 5%);
-    box-shadow: 0 2px 15px var(--box-shadow-color);
-    z-index: 1000;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    padding: 1rem 2rem;
-    backdrop-filter: blur(5px);
-    border-bottom: 1px solid var(--border-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: color-mix(in srgb, var(--bg) 90%, black 5%);
+  box-shadow: 0 2px 15px var(--box-shadow-color);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid var(--border-color);
 }
 
-.navbar ul {
-    list-style: none;
-    display: flex;
-    flex-grow: 1; 
-    justify-content: center; 
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
 }
 
-.navbar ul li {
-    margin: 0 1.2rem;
+.nav-center {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 1.2rem;
 }
 
-.navbar ul li a {
-    color: var(--heading-color);
-    font-size: var(--font-size-lg);
-    font-weight: 500;
-    padding: 0.5rem 0;
-    position: relative;
-    transition: color 0.3s ease;
+.nav-center li a {
+  color: var(--heading-color);
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
 }
 
-.navbar ul li a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 3px;
-    background-color: var(--primary);
-    transition: width 0.3s ease;
+.nav-center li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
 }
 
-.navbar ul li a:hover::after,
-.navbar ul li a.active::after {
-    width: 100%;
+.nav-center li a:hover::after,
+.nav-center li a.active::after {
+  width: 100%;
 }
 
-.navbar ul li a:hover,
-.navbar ul li a.active {
-    color: var(--primary);
+.nav-center li a:hover,
+.nav-center li a.active {
+  color: var(--primary);
 }
+
+.icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.icon-link:hover {
+  transform: scale(1.1);
+}
+
+.home-icon,
+.call-icon {
+  transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+.icon-link:hover .home-icon,
+.icon-link:hover .call-icon {
+  fill: var(--primary);
+  transform: rotate(5deg);
+}
+
+
 
 /* --- Hero Section --- */
 .highlighted-name {
@@ -701,6 +727,14 @@ a:hover {
 
 .github-link .fab {
     font-size: 1.2em;
+}
+
+/* --- Opportunities Section --- */
+
+.opportunities-content .tagline,
+.opportunities-content .call-to-action,
+.feature-item p {
+    text-align: justify;
 }
 
 .opportunities-content {
