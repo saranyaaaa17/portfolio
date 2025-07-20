@@ -16,6 +16,9 @@
   --font-size-4xl: 3rem;
   --font-size-5xl: 3.5rem;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 /* Global */
 body {
