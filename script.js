@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     type();
-                    obs.disconnect(); // Fixed: use observer.disconnect() instead of unobserve each
+                    obs.disconnect();
                 }
             });
         }, { threshold: 0.8 });
@@ -198,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     animateElements.forEach(element => animateObserver.observe(element));
 
+    // Handle page load with hash
     if (window.location.hash) {
         const targetElement = document.querySelector(window.location.hash);
         if (targetElement) {
@@ -207,6 +208,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // ✅ NEW: Smooth scroll on link click for anchor tags
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                history.pushState(null, '', targetId);
+            }
+        });
+    });
+
+    // Skills scroll controls
     const skillsTrack = document.querySelector('.skills-track');
     const leftScrollBtn = document.querySelector('.scroll-button.left-arrow');
     const rightScrollBtn = document.querySelector('.scroll-button.right-arrow');
