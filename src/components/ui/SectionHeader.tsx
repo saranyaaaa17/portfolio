@@ -16,7 +16,7 @@ const SectionHeader = ({
   className = '' 
 }: SectionHeaderProps) => {
   return (
-    <div className={`mb-20 ${className}`}>
+    <div className={`mb-12 md:mb-20 ${className}`}>
       {label && (
         <div className="flex items-center gap-3 mb-4">
           <span className="h-px w-8 bg-blue-500/50"></span>
@@ -29,7 +29,7 @@ const SectionHeader = ({
         {title}
       </h3>
       {subtitle && (
-        <p className="text-lg text-gray-400 mt-6 leading-relaxed max-w-2xl font-light">
+        <p className="text-lg text-gray-400 mt-4 md:mt-6 leading-relaxed max-w-2xl font-light">
           {subtitle}
         </p>
       )}

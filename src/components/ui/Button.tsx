@@ -27,7 +27,7 @@ const Button = ({
   iconPosition = 'right',
   ...props 
 }: ButtonProps) => {
-  const baseStyles = "inline-flex items-center justify-center px-8 py-3 text-base font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2";
+  const baseStyles = "inline-flex items-center justify-center px-6 py-2.5 text-sm md:px-8 md:py-3 md:text-base font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2";
   
   const variants = {
     primary: "bg-blue-500 text-white hover:bg-blue-500 focus:ring-blue-500 shadow-sm hover:shadow-md",

@@ -65,7 +65,7 @@ const Contact = () => {
         transition={{ ...fadeInUp.transition, delay: 0.5 }}
         className="text-center pt-8 border-t border-neutral-800"
       >
-        <p className="text-base text-gray-200 mb-6">
+        <p className="text-sm md:text-base text-gray-200 mb-6">
           Prefer email? Send me a message directly:
         </p>
         <Button 

@@ -45,7 +45,7 @@ const Hero = () => {
                         <div className="reveal-mask overflow-hidden">
                             <motion.h1 
                                 variants={revealUp}
-                                className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-[0.9]"
+                                className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-[0.9]"
                             >
                                 Saranya <span className="text-transparent bg-clip-text bg-gradient-to-b from-blue-400 to-blue-600">Pothina</span>
                             </motion.h1>

@@ -51,7 +51,7 @@ const Projects = () => {
               {/* Project Header - Always Visible */}
               <button
                 onClick={() => setExpandedProject(expandedProject === project.id ? null : project.id)}
-                className="w-full p-8 text-left flex items-start justify-between gap-6 hover:bg-black/50 transition-colors duration-200"
+                className="w-full p-6 md:p-8 text-left flex items-start justify-between gap-6 hover:bg-black/50 transition-colors duration-200"
               >
                 <div className="flex-1">
                   {/* Title */}

@@ -21,14 +21,14 @@ const Education = () => {
             key={index}
             {...fadeInUp}
             transition={{ ...fadeInUp.transition, delay: index * 0.1 }}
-            className="p-8 rounded-xl border border-neutral-800 bg-black shadow-sm hover:shadow-md transition-all duration-300"
+            className="p-6 md:p-8 rounded-xl border border-neutral-800 bg-black shadow-sm hover:shadow-md transition-all duration-300"
           >
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6 pb-6 border-b border-neutral-800">
               <div className="flex-1">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="flex-shrink-0 w-14 h-14 bg-blue-900/30 rounded-xl flex items-center justify-center">
-                    <GraduationCap className="w-7 h-7 text-blue-400" />
+                  <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-blue-900/30 rounded-xl flex items-center justify-center">
+                    <GraduationCap className="w-6 h-6 md:w-7 md:h-7 text-blue-400" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-gray-100 mb-2">

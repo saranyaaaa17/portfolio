@@ -35,21 +35,21 @@ const ThinkingProcess = () => {
             <motion.div
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
-              className={`p-8 rounded-xl border cursor-pointer transition-all duration-300 ${
+              className={`p-6 md:p-8 rounded-xl border cursor-pointer transition-all duration-300 ${
                 expandedCard === card.id
                   ? 'border-blue-500 bg-blue-900/20 shadow-md'
                   : 'border-neutral-800 bg-black shadow-sm hover:shadow-md'
               }`}
             >
-              <div className="flex items-start gap-6">
+              <div className="flex items-start gap-4 md:gap-6">
                 {/* Number Badge */}
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-500 text-white font-bold text-lg flex items-center justify-center">
+                <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-lg bg-blue-500 text-white font-bold text-base md:text-lg flex items-center justify-center">
                   {card.id}
                 </div>
                 
                 <div className="flex-1">
                   {/* Title */}
-                  <h4 className="text-xl font-bold text-gray-100 mb-3">
+                  <h4 className="text-lg md:text-xl font-bold text-gray-100 mb-3">
                     {card.title}
                   </h4>
                   

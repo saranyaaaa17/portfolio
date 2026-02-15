@@ -29,7 +29,7 @@ const SectionContainer = ({
   const content = (
     <section 
       id={id}
-      className={`py-24 px-6 ${backgrounds[background]} ${className}`}
+      className={`py-16 md:py-24 px-6 md:px-12 ${backgrounds[background]} ${className}`}
     >
       <div className="max-w-4xl mx-auto">
         {children}

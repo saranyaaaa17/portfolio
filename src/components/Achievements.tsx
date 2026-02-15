@@ -41,7 +41,7 @@ const Achievements = () => {
     <section 
       ref={sectionRef}
       id="achievements" 
-      className="py-24 px-6 md:px-12 bg-black"
+      className="py-16 md:py-24 px-6 md:px-12 bg-black"
     >
       <div className="max-w-7xl mx-auto">
         
@@ -50,7 +50,7 @@ const Achievements = () => {
           <h2 className="text-sm font-semibold text-blue-500 uppercase tracking-widest mb-4">
             Recognition & Growth
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-gray-100 tracking-tight mb-4">
+          <h3 className="text-3xl md:text-5xl font-bold text-gray-100 tracking-tight mb-4">
             Achievements & Certifications
           </h3>
           <p className="text-lg text-gray-200 max-w-2xl mx-auto">
@@ -83,7 +83,7 @@ const Achievements = () => {
         </div>
 
         {/* Certifications List */}
-        <div className="bg-black border border-neutral-800 rounded-3xl p-8 md:p-12 shadow-sm">
+        <div className="bg-black border border-neutral-800 rounded-3xl p-6 md:p-12 shadow-sm">
           <h4 className="text-2xl font-bold text-gray-100 mb-8 flex items-center gap-3">
             <Award className="w-7 h-7 text-blue-500" />
             Professional Certifications

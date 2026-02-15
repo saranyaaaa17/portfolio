@@ -6,7 +6,7 @@ import { stats } from '../data/stats';
 const Stats = () => {
 
   return (
-    <div className="py-16 px-6 bg-black border-y border-neutral-800">
+    <div className="py-12 md:py-16 px-6 md:px-12 bg-black border-y border-neutral-800">
       <div className="max-w-4xl mx-auto">
         <motion.div
           variants={staggerContainer}
@@ -21,10 +21,10 @@ const Stats = () => {
               variants={staggerItem}
               className="text-center"
             >
-              <div className="text-4xl md:text-5xl font-bold text-gray-100 mb-2">
+              <div className="text-3xl md:text-5xl font-bold text-gray-100 mb-2">
                 {stat.value}
                 {stat.suffix && (
-                  <span className="text-2xl text-gray-200">{stat.suffix}</span>
+                  <span className="text-xl md:text-2xl text-gray-200">{stat.suffix}</span>
                 )}
               </div>
               <div className="text-sm font-medium text-gray-200 uppercase tracking-wider">

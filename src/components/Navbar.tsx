@@ -133,7 +133,7 @@ const Navbar = () => {
                   <Link
                     to={link.path}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center gap-3 px-5 py-3.5 rounded-2xl transition-all duration-200 ${
+                    className={`flex items-center gap-2.5 px-4 py-3 rounded-2xl transition-all duration-200 ${
                       isActive
                         ? 'bg-blue-900/40 text-blue-400 font-semibold shadow-sm'
                         : 'text-gray-200 hover:bg-zinc-800'

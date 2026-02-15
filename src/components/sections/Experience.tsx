@@ -21,7 +21,7 @@ const Experience = () => {
         initial="hidden"
         whileInView="visible"
         viewport={viewportConfig}
-        className="space-y-8 relative before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-blue-900/20 before:via-blue-500 before:to-blue-900/20 md:before:left-8"
+        className="space-y-8 relative before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-blue-900/20 before:via-blue-500 before:to-blue-900/20 md:before:left-8 before:hidden md:before:block"
       >
         {experiences.map((exp, index) => (
           <motion.div
@@ -33,7 +33,7 @@ const Experience = () => {
             <div className="hidden md:flex absolute left-6 top-2 w-5 h-5 bg-blue-500 rounded-full border-4 border-black shadow-md z-10" />
 
             {/* Content Card */}
-            <div className="p-8 rounded-xl border border-neutral-800 bg-black shadow-sm hover:shadow-md transition-all duration-300 group">
+            <div className="p-6 md:p-8 rounded-xl border border-neutral-800 bg-black shadow-sm hover:shadow-md transition-all duration-300 group">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
                 <div className="flex-1">
                   <div className="flex items-center justify-between">
