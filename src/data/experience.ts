@@ -8,8 +8,20 @@ export const experiences: ExperienceItem[] = [
     type: "Internship",
     certificate: "https://drive.google.com/file/d/10Fs8lqmXORQHnF9WMHGgYtVrzynP2lgN/view?usp=drive_link",
     highlights: [
-      "Engaged in real-world machine learning tasks involving data analysis and predictive modeling",
-      "Completed an applied project and earned internship completion certification"
+      "Learned and applied end-to-end machine learning workflow including preprocessing, model building, and evaluation",
+      "Built a real-world project: Heart Disease Prediction System"
+    ]
+  },
+  {
+    role: "Python Full Stack Trainee",
+    company: "ExcelR",
+    period: "Jun – Jul 2024",
+    type: "Trainee",
+    certificate: "https://drive.google.com/file/d/1_SNB_v20U7W5bOD16Ab8eyl9lJPoBcJQ/view?usp=drive_link",
+    highlights: [
+      "Built backend APIs using Python and FastAPI",
+      "Worked on full-stack application development and API integration",
+      "Gained hands-on experience in connecting frontend with backend services"
     ]
   },
   {
@@ -19,19 +31,8 @@ export const experiences: ExperienceItem[] = [
     type: "Internship",
     certificate: "https://drive.google.com/file/d/10Dnrap1FP5DQ1X1b4zPOP1RKJ5cWI7Im/view?usp=drive_link",
     highlights: [
-      "Developed responsive web interfaces aligned with real-time project requirements",
-      "Successfully completed assigned deliverables and received internship certification"
-    ]
-  },
-  {
-    role: "Python Full Stack Intern",
-    company: "ExcelR",
-    period: "Jun – Jul 2024",
-    type: "Internship",
-    certificate: "https://drive.google.com/file/d/1_SNB_v20U7W5bOD16Ab8eyl9lJPoBcJQ/view?usp=drive_link",
-    highlights: [
-      "Contributed to the development of full-stack applications covering frontend and backend logic",
-      "Completed a capstone project and obtained training and internship certification"
+      "Built responsive web pages using HTML and CSS",
+      "Applied frontend skills to develop a personal portfolio project"
     ]
   }
 ];

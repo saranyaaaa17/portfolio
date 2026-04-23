@@ -36,25 +36,15 @@ const About = () => {
           className="space-y-6 text-lg text-gray-200 leading-relaxed mb-16 font-light"
         >
           <p>
-            I am a Computer Science student based in{' '}
-            <span className="font-semibold text-white">Visakhapatnam</span>, graduating in{' '}
-            <span className="font-semibold text-white">2026</span>. My focus is on building a foundation in core computing principles while exploring{' '}
-            <span className="font-semibold text-blue-400">machine learning</span>{' '}
-            and{' '}
-            <span className="font-semibold text-blue-400">web development</span>.
+            I am a <span className="font-semibold text-white">Backend-focused Computer Science student</span> skilled in <span className="font-semibold text-blue-400">Python, FastAPI, and REST API development</span>. I specialize in building scalable backend solutions and have hands-on experience in developing full-stack and AI-based applications.
           </p>
           
           <p>
-            I learn by building—taking concepts apart to understand how they work internally before applying them in new contexts. Through internships in ML and web development, I've learned that good software works{' '}
-            <span className="font-semibold text-white">consistently</span>{' '}
-            under real-world constraints.
+            My approach is driven by strong problem-solving skills and a passion for creating efficient systems. Through real-world projects and internships, I've developed a deep understanding of how to bridge the gap between complex AI models and user-centric web applications.
           </p>
           
           <p>
-            I'm looking for roles that value{' '}
-            <span className="font-semibold text-white">technical consistency</span>{' '}
-            and{' '}
-            <span className="font-semibold text-white">clear thinking</span>. My goal is to build reliable systems that solve problems without unnecessary complexity.
+            I completed my B.Tech in Computer Science and Engineering at <span className="font-semibold text-white">Baba Institute of Technology and Sciences</span> in <span className="font-semibold text-white">March 2026</span>. I'm looking for opportunities where I can apply my expertise in backend architecture and AI integration to solve meaningful problems.
           </p>
         </motion.div>
       </div>

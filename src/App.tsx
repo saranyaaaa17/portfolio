@@ -21,7 +21,6 @@ function App() {
   return (
     <Router>
       <div className="bg-black min-h-screen font-sans text-gray-100 selection:bg-blue-100 selection:text-blue-900 relative">
-        <div className="fixed inset-0 bg-grid-premium pointer-events-none z-0" />
         
         {/* Custom Trailing Cursor */}
         <CursorFollower />

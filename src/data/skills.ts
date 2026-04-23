@@ -2,19 +2,27 @@ import { SkillCategory } from '../types';
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: "Programming",
-    skills: ["Python", "C", "JavaScript", "SQL", "Java"]
+    title: "Backend Development",
+    skills: ["Python", "FastAPI", "REST API Development", "API Integration", "Java (Basics)"]
   },
   {
-    title: "AI & Machine Learning",
-    skills: ["TensorFlow", "Pandas", "Seaborn", "Scikit-Learn"]
+    title: "Frontend Development",
+    skills: ["HTML", "CSS", "JavaScript", "React (Basics)", "Tailwind CSS"]
   },
   {
-    title: "Web Development",
-    skills: ["HTML", "CSS", "Responsive Design", "API Development"]
+    title: "Database",
+    skills: ["SQL", "PostgreSQL", "Supabase"]
   },
   {
-    title: "Tools & Database",
-    skills: ["GitHub", "Git", "Figma", "Canva", "MySQL", "Version Control"]
+    title: "Machine Learning & AI",
+    skills: ["Machine Learning", "Data Preprocessing", "Feature Engineering", "Model Building", "Pandas", "NumPy", "Scikit-learn", "LangChain"]
+  },
+  {
+    title: "Core Concepts",
+    skills: ["Data Structures & Algorithms (Basics)", "Object-Oriented Programming", "Database Design (Basics)"]
+  },
+  {
+    title: "Developer Tools",
+    skills: ["Git", "GitHub", "Postman", "Vercel", "Netlify", "ChatGPT", "Claude AI", "GitHub Copilot"]
   }
 ];

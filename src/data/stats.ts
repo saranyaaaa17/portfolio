@@ -2,7 +2,7 @@ import { Stat } from '../types';
 
 export const stats: Stat[] = [
   {
-    value: "8.0",
+    value: "8.1",
     label: "CGPA",
     suffix: "/10"
   },

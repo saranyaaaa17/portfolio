@@ -4,10 +4,10 @@ export const projects: Project[] = [
   {
     id: 1,
     title: "Multi-Agent AI Tutor",
-    summary: "An intelligent tutoring system using coordinated AI agents",
+    summary: "An intelligent tutoring system using multi-agent architecture for adaptive learning.",
     problem: "Traditional learning platforms provide generic responses that don't adapt to individual learning patterns. Students often struggle with concepts because explanations lack personalization and context-awareness.",
-    approach: "Developed a multi-agent architecture where specialized agents handle different aspects of tutoring—one for content delivery, another for adaptive feedback, and a third for knowledge assessment. The agents communicate to build a learner profile and adjust explanations based on demonstrated understanding.",
-    techStack: ["Python", "TensorFlow", "NLP", "Multi-Agent Systems", "Machine Learning"],
+    approach: "Developed an AI-powered tutoring system using multi-agent architecture and LangChain. Built backend logic for adaptive response generation and structured explanations. Designed system to handle dynamic user queries efficiently.",
+    techStack: ["Python", "FastAPI", "LangChain"],
     challenges: [
       "Coordinating multiple agents without creating response conflicts or redundancy",
       "Designing a feedback loop that genuinely adapts rather than just varying pre-written responses",
@@ -23,11 +23,11 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: "Heart Disease Prediction Model",
-    summary: "A machine learning model for cardiovascular risk assessment",
+    title: "Heart Disease Prediction Web Application",
+    summary: "A full-stack machine learning application for cardiovascular risk prediction.",
     problem: "Early detection of heart disease risk can significantly improve patient outcomes, but manual risk assessment is time-consuming and may miss subtle patterns in health data. A data-driven approach could assist in identifying high-risk individuals.",
-    approach: "Built a supervised learning model using logistic regression on structured health metrics (cholesterol, blood pressure, age, BMI, etc.). The model classifies individuals into risk categories based on historical patient data with known outcomes.",
-    techStack: ["Python", "Scikit-learn", "Pandas", "Seaborn", "Matplotlib", "Jupyter Notebook"],
+    approach: "Built a full-stack machine learning application for cardiovascular risk prediction. Developed and integrated ML model with backend APIs for real-time predictions. Implemented frontend-backend interaction for user input and output visualization.",
+    techStack: ["Python", "FastAPI", "React", "Pandas", "Scikit-learn"],
     challenges: [
       "Handling missing data and deciding between imputation strategies or removal",
       "Addressing class imbalance in the dataset (fewer positive cases than negative)",
