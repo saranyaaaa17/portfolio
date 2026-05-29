@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { SectionContainer } from '../ui';
-import { fadeInUp } from '../../utils/motion';
+import { fadeInUp, staggerContainer, staggerItem, viewportConfig } from '../../utils/motion';
 import { GraduationCap, Calendar, Award } from 'lucide-react';
 
 import { educationList } from '../../data/education';
@@ -31,8 +31,8 @@ const Education = () => {
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6 pb-6 border-b border-neutral-800">
               <div className="flex-1">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-blue-900/30 rounded-xl flex items-center justify-center">
-                    <GraduationCap className="w-6 h-6 md:w-7 md:h-7 text-blue-400" />
+                  <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white/5 rounded-xl flex items-center justify-center">
+                    <GraduationCap className="w-6 h-6 md:w-7 md:h-7 text-gray-200" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-gray-100 mb-2">
@@ -45,7 +45,7 @@ const Education = () => {
                       {edu.location}
                     </p>
                     {edu.status && (
-                      <p className="text-sm text-blue-400/80 mt-1 font-medium italic">
+                      <p className="text-sm text-gray-200/80 mt-1 font-medium italic">
                         {edu.status}
                       </p>
                     )}
@@ -58,7 +58,7 @@ const Education = () => {
                   <Calendar className="w-4 h-4" />
                   <span>{edu.period}</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm font-semibold text-blue-400 bg-blue-900/30 px-4 py-2 rounded-lg">
+                <div className="flex items-center gap-2 text-sm font-semibold text-gray-200 bg-white/5 px-4 py-2 rounded-lg">
                   <Award className="w-4 h-4" />
                   <span>CGPA: {edu.cgpa}</span>
                 </div>
@@ -70,7 +70,7 @@ const Education = () => {
               <ul className="space-y-3">
                 {edu.highlights.map((highlight, hIndex) => (
                   <li key={hIndex} className="flex items-start gap-3 text-sm text-gray-300">
-                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-white/10 mt-2 flex-shrink-0" />
                     <span className="leading-relaxed">{highlight}</span>
                   </li>
                 ))}
