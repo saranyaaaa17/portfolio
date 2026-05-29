@@ -37,13 +37,13 @@ const ThinkingProcess = () => {
               transition={{ duration: 0.2 }}
               className={`p-6 md:p-8 rounded-xl border cursor-pointer transition-all duration-300 ${
                 expandedCard === card.id
-                  ? 'border-blue-500 bg-blue-900/20 shadow-md'
+                  ? 'border-white/10 bg-white/5 shadow-md'
                   : 'border-neutral-800 bg-black shadow-sm hover:shadow-md'
               }`}
             >
               <div className="flex items-start gap-4 md:gap-6">
                 {/* Icon Badge */}
-                <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-lg border-2 border-blue-500 text-blue-500 flex items-center justify-center">
+                <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-lg border-2 border-white/10 text-gray-200 flex items-center justify-center">
                   <card.icon className="w-4 h-4 md:w-5 md:h-5" strokeWidth={2.5} />
                 </div>
                 

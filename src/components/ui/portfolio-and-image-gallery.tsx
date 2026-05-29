@@ -312,7 +312,7 @@ export const RadialScrollGallery = forwardRef<
                     onBlur={() => !disabled && setHoveredIndex(null)}
                     className={`
                       block cursor-pointer outline-none text-left
-                      focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
+                      focus-visible:ring-2 focus-visible:ring-white/20 focus-visible:ring-offset-2
                       rounded-xl transition-all duration-500 ease-out will-change-transform
                       ${isHovered ? 'scale-125 -translate-y-8' : 'scale-100'}
                       ${

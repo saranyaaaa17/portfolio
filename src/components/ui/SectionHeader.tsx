@@ -19,8 +19,8 @@ const SectionHeader = ({
     <div className={`mb-12 md:mb-20 ${className}`}>
       {label && (
         <div className="flex items-center gap-3 mb-4">
-          <span className="h-px w-8 bg-blue-500/50"></span>
-          <h2 className="text-sm font-bold text-blue-500 uppercase tracking-[0.2em]">
+          <span className="h-px w-8 bg-white/10"></span>
+          <h2 className="text-sm font-bold text-gray-300 uppercase tracking-[0.2em]">
             {label}
           </h2>
         </div>

@@ -10,3 +10,4 @@ export { Badge } from './badge';
 export { RadialScrollGallery } from './portfolio-and-image-gallery';
 export { ProjectShowcase } from './project-showcase';
 export { CircularGallery } from './circular-gallery';
+export { StackedCardsInteraction } from './stacked-cards-interaction';

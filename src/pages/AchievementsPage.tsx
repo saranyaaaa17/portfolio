@@ -11,7 +11,7 @@ const AchievementsPage = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="text-xs font-bold text-blue-500 uppercase tracking-[0.3em] mb-4"
+            className="text-xs font-bold text-gray-300 uppercase tracking-[0.3em] mb-4"
           >
             Recognition & Growth
           </motion.p>

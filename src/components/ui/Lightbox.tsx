@@ -11,6 +11,8 @@ interface LightboxProps {
 
 const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex = 0, onClose }) => {
   const [index, setIndex] = useState(initialIndex);
+  const closeRef = React.useRef<HTMLButtonElement | null>(null);
+  const containerRef = React.useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -19,12 +21,58 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex = 0, onClose }
       if (e.key === 'ArrowRight') setIndex((i) => Math.min(images.length - 1, i + 1));
     };
     document.addEventListener('keydown', onKey);
+    // prevent background scroll
+    const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+
+    // autofocus close button when opened
+    setTimeout(() => closeRef.current?.focus(), 0);
+
+    // announce open
+    const announceOpen = document.createElement('div');
+    announceOpen.setAttribute('aria-live', 'polite');
+    announceOpen.className = 'sr-only';
+    announceOpen.textContent = `Opened preview, image ${index + 1} of ${images.length}`;
+    document.body.appendChild(announceOpen);
+    setTimeout(() => document.body.removeChild(announceOpen), 1000);
+
     return () => {
       document.removeEventListener('keydown', onKey);
-      document.body.style.overflow = '';
+      document.body.style.overflow = prevOverflow;
     };
   }, [images.length, onClose]);
+
+  // Simple focus trap: keep focus inside the lightbox
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    const focusable = Array.from(el.querySelectorAll<HTMLElement>(focusableSelector)).filter((n) => !n.hasAttribute('disabled'));
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return;
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, []);
+
+  // Keep an internal live region updated for image position
+  const [internalLive, setInternalLive] = React.useState(`Image ${index + 1} of ${images.length}`);
+
+  useEffect(() => {
+    setInternalLive(`Image ${index + 1} of ${images.length}`);
+  }, [index, images.length]);
 
   const prev = () => setIndex((i) => Math.max(0, i - 1));
   const next = () => setIndex((i) => Math.min(images.length - 1, i + 1));
@@ -45,15 +93,20 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex = 0, onClose }
         exit={{ scale: 0.95, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         className="relative max-w-full max-h-full"
+        ref={containerRef}
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
           className="absolute top-3 right-3 w-10 h-10 rounded-full bg-black/60 flex items-center justify-center border border-white/10 text-white hover:bg-black/80 z-20"
+          ref={closeRef}
           aria-label="Close preview"
         >
           <X className="w-4 h-4" />
         </button>
+
+        {/* internal announcement for screen readers */}
+        <div aria-live="polite" className="sr-only">{internalLive}</div>
 
         {images.length > 1 && (
           <>

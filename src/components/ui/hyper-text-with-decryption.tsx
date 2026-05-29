@@ -97,7 +97,7 @@ const Word = ({
         y: isHovered ? -4 : 0,
         opacity: isDimmed && !isHovered ? 0.3 : 1,
         filter: isDimmed && !isHovered ? "blur(2px)" : "blur(0px)",
-        color: isHovered ? "#FFFFFF" : isHighlightable ? "#2563eb" : "#1f2937",
+        color: isHovered ? "#FFFFFF" : isHighlightable ? "#E5E7EB" : "#1f2937",
         zIndex: isHovered ? 20 : 1,
       }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -110,9 +110,9 @@ const Word = ({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             layoutId="hover-bg"
-            style={{
+              style={{
               boxShadow:
-                "0px 10px 25px -5px rgba(37, 99, 235, 0.4), 0px 8px 10px -6px rgba(0, 0, 0, 0.1)",
+                "0px 10px 25px -5px rgba(255,255,255,0.06), 0px 8px 10px -6px rgba(0, 0, 0, 0.1)",
             }}
           />
         )}
@@ -127,7 +127,7 @@ const Word = ({
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0 }}
-              className="absolute -top-1 -right-1 w-2 h-2 bg-blue-500 rounded-full z-20"
+              className="absolute -top-1 -right-1 w-2 h-2 bg-white/20 rounded-full z-20"
             />
             <motion.span
               initial={{ scale: 0 }}

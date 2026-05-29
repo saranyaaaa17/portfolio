@@ -51,8 +51,8 @@ const Contact = () => {
           const Icon = method.icon;
           const content = (
             <div className="flex items-start gap-4 p-6 rounded-xl border border-neutral-800 bg-black shadow-sm hover:shadow-md transition-all duration-200">
-              <div className="flex-shrink-0 w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center">
-                <Icon className="w-6 h-6 text-blue-400" />
+              <div className="flex-shrink-0 w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center">
+                <Icon className="w-6 h-6 text-gray-200" />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">

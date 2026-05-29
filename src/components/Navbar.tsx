@@ -1,8 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Home, User, Briefcase, Code, Award, Trophy, Mail, Menu, X, FileText } from 'lucide-react';
+import { Home, User, Briefcase, Code, Award, Trophy, Mail, Menu, X, FileText, Sparkles } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import DevLogo from './ui/DevLogo';
+// logo removed per request
 
 const Navbar = () => {
   const location = useLocation();
@@ -31,27 +31,27 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <nav className={`fixed top-3 left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-7xl -translate-x-1/2 transition-all duration-300 ${
       scrolled 
-        ? 'bg-black border-b border-neutral-800 shadow-premium-lg' 
-        : 'bg-transparent border-b border-transparent'
+        ? 'bg-black/75 border border-white/10 shadow-2xl backdrop-blur-xl' 
+        : 'bg-black/30 border border-white/8 backdrop-blur-xl'
     }`}>
-      <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+      <div className="px-3 py-2 sm:px-4 sm:py-2.5">
+          <div className="flex items-center justify-between gap-3 rounded-full border accent-border bg-black/50 px-3 py-2 backdrop-blur-xl sm:px-4">
           
           {/* Logo/Name */}
           <Link to="/" className="group">
             <motion.div
               whileHover={{ scale: 1.03 }}
-              className="flex items-center gap-3"
+              className="flex items-center gap-2.5"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              <div className="flex items-center justify-center w-9 h-9">
-                <DevLogo size={36} />
-              </div>
               <div className="flex flex-col leading-tight">
                 <span className="text-sm font-semibold text-white tracking-tight group-hover:text-gray-200 transition-colors">
                   Saranya Pothina
+                </span>
+                <span className="text-[9px] uppercase tracking-[0.26em] accent-gradient-text">
+                  AI / ML Engineer
                 </span>
               </div>
             </motion.div>
@@ -59,7 +59,7 @@ const Navbar = () => {
 
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden xl:flex items-center gap-1 rounded-full border border-white/10 bg-black/30 p-1">
             {navLinks.map((link) => {
               const Icon = link.icon;
               const isActive = location.pathname === link.path;
@@ -68,24 +68,24 @@ const Navbar = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="relative px-5 py-2.5 rounded-xl transition-all duration-300 group"
+                  className="relative rounded-full px-3.5 py-2 transition-all duration-300 group"
                 >
                   <div className={`flex items-center gap-2.5 ${
                     isActive 
-                      ? 'text-blue-500 font-semibold' 
-                      : 'text-gray-200 hover:text-gray-100 group-hover:scale-105 transition-transform'
+                      ? 'text-white font-semibold' 
+                        : 'text-gray-300 hover:text-white transition-transform'
                   }`}>
                     <Icon className={`w-4 h-4 ${
                       !isActive && 'group-hover:rotate-6 transition-transform'
                     }`} />
-                    <span>{link.label}</span>
+                    <span className="text-sm">{link.label}</span>
                   </div>
                   
                   {/* Active Indicator with smooth animation */}
                   {isActive && (
                     <motion.div
                       layoutId="navbar-indicator"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-500 rounded-full"
+                      className="absolute inset-0 rounded-full accent-gradient-bg ring-1 ring-white/12"
                       initial={false}
                       transition={{ 
                         type: "spring", 
@@ -97,18 +97,26 @@ const Navbar = () => {
                   
                   {/* Hover Background */}
                   {!isActive && (
-                    <div className="absolute inset-0 bg-white/5 group-hover:bg-white/10 rounded-xl transition-colors duration-300 -z-10" />
+                    <div className="absolute inset-0 rounded-full bg-white/0 group-hover:bg-white/5 transition-colors duration-300 -z-10" />
                   )}
                 </Link>
               );
             })}
           </div>
 
+          <Link
+            to="/resume"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full border accent-border accent-gradient-bg px-4 py-2 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:border-white/20"
+          >
+            <FileText className="h-4 w-4" />
+            Resume
+          </Link>
+
           {/* Mobile Menu Button */}
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2.5 rounded-xl hover:bg-white/10 transition-colors duration-200"
+            className="xl:hidden rounded-full border accent-border bg-white/5 p-2.5 transition-colors duration-200 hover:bg-white/10"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -126,7 +134,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden mt-4 pb-4 space-y-2"
+            className="xl:hidden mt-3 overflow-hidden rounded-3xl border accent-border bg-black/88 p-3 backdrop-blur-xl space-y-2"
           >
             {navLinks.map((link) => {
               const Icon = link.icon;
@@ -142,8 +150,8 @@ const Navbar = () => {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`flex items-center gap-2.5 px-4 py-3 rounded-2xl transition-all duration-200 ${
                       isActive
-                        ? 'bg-blue-900/40 text-blue-400 font-semibold shadow-sm'
-                        : 'text-gray-200 hover:bg-zinc-800'
+                          ? 'bg-gradient-to-r from-white/18 via-white/12 to-white/10 text-white font-semibold ring-1 ring-white/12'
+                            : 'text-gray-200 hover:bg-white/5'
                     }`}
                   >
                     <Icon className="w-5 h-5" />
@@ -152,6 +160,13 @@ const Navbar = () => {
                 </motion.div>
               );
             })}
+            <Link
+              to="/resume"
+              onClick={() => setMobileMenuOpen(false)}
+              className="mt-2 block rounded-2xl border border-white/10 bg-gradient-to-r from-white/12 via-white/8 to-white/6 px-4 py-3 text-center text-sm font-semibold text-white"
+            >
+              Resume
+            </Link>
           </motion.div>
         )}
       </div>

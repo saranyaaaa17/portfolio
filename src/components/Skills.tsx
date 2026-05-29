@@ -32,7 +32,7 @@ const Skills = () => {
                       <div className="text-xs text-gray-400">{pct}%</div>
                     </div>
                     <div className="w-full bg-white/5 h-2 rounded-full overflow-hidden">
-                      <div className="h-2 bg-gradient-to-r from-blue-500 to-cyan-400" style={{ width: `${pct}%` }} />
+                      <div className="h-2 bg-gradient-to-r from-white/80 to-white/40" style={{ width: `${pct}%` }} />
                     </div>
                   </motion.div>
                 );

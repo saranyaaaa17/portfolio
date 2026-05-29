@@ -75,7 +75,9 @@ export const projects: Project[] = [
     challenges: ["Designing a luxury visual system", "Delivering smooth animations without performance regressions"],
     learnings: ["Design system composition for immersive UI", "Performance budgeting with heavy visuals"],
     github: "https://github.com/saranyaaaa17/AUREON",
-    live: null
+    live: null,
+    screenshot: "/screenshots/aureon.png",
+    screenshots: ["/screenshots/aureon.png"]
   },
   {
     id: 7,
@@ -87,7 +89,9 @@ export const projects: Project[] = [
     challenges: ["Auth and data syncing with GitHub", "Designing a performant filtering experience"],
     learnings: ["Prisma schema design for portfolios", "Server-side auth flows and session handling"],
     github: "https://github.com/saranyaaaa17/devconnect",
-    live: null
+    live: null,
+    screenshot: "/screenshots/devconnect.png",
+    screenshots: ["/screenshots/devconnect.png"]
   },
   {
     id: 8,
@@ -99,6 +103,8 @@ export const projects: Project[] = [
     challenges: ["Media responsiveness", "Keyboard and accessibility for player controls"],
     learnings: ["Accessible media controls", "Optimized responsive video layouts"],
     github: "https://github.com/saranyaaaa17/youtubeclone",
-    live: null
+    live: null,
+    screenshot: "/screenshots/youtubeclone.png",
+    screenshots: ["/screenshots/youtubeclone.png"]
   }
 ];

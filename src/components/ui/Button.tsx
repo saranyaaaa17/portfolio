@@ -30,26 +30,42 @@ const Button = ({
   const baseStyles = "inline-flex items-center justify-center px-6 py-2.5 text-sm md:px-8 md:py-3 md:text-base font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2";
   
   const variants = {
-    primary: "bg-gradient-to-r from-[#4285F4] via-[#34A853] to-[#FBBC05] text-black hover:opacity-95 focus:ring-white/20 shadow-sm hover:shadow-md",
+    primary: "accent-gradient-bg text-white hover:opacity-95 focus:ring-white/20 shadow-sm hover:shadow-md",
     secondary: "bg-black text-white hover:bg-zinc-800 focus:ring-zinc-700 shadow-sm hover:shadow-md",
-    outline: "bg-transparent text-gray-100 border border-neutral-700 hover:bg-white/5 hover:border-white/10 focus:ring-neutral-700 shadow-sm hover:shadow-md"
+    outline: "p-[1px] text-white focus:ring-white/20 shadow-sm hover:shadow-md accent-gradient-bg"
   };
 
   const Component: any = href ? motion.a : motion.button;
   const extraProps = href ? { href, target: href.startsWith('http') ? '_blank' : undefined, rel: href.startsWith('http') ? 'noopener noreferrer' : undefined } : { onClick };
 
   return (
-    <Component
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.98 }}
-      className={`${baseStyles} ${variants[variant]} ${className}`}
-      {...extraProps}
-      {...props}
-    >
-      {Icon && iconPosition === 'left' && <Icon className="w-4 h-4 mr-2" />}
-      {children}
-      {Icon && iconPosition === 'right' && <Icon className="w-4 h-4 ml-2" />}
-    </Component>
+    variant === 'outline' ? (
+      <Component
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.98 }}
+        className={`${baseStyles} ${variants[variant]} ${className}`}
+        {...extraProps}
+        {...props}
+      >
+        <span className="inline-flex items-center justify-center rounded-[11px] bg-black px-6 py-2.5 text-sm font-semibold text-gray-100 md:px-8 md:py-3 md:text-base">
+          {Icon && iconPosition === 'left' && <Icon className="mr-2 h-4 w-4" />}
+          {children}
+          {Icon && iconPosition === 'right' && <Icon className="ml-2 h-4 w-4" />}
+        </span>
+      </Component>
+    ) : (
+      <Component
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.98 }}
+        className={`${baseStyles} ${variants[variant]} ${className}`}
+        {...extraProps}
+        {...props}
+      >
+        {Icon && iconPosition === 'left' && <Icon className="w-4 h-4 mr-2" />}
+        {children}
+        {Icon && iconPosition === 'right' && <Icon className="w-4 h-4 ml-2" />}
+      </Component>
+    )
   );
 };
 

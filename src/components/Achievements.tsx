@@ -56,8 +56,8 @@ const Achievements = () => {
                 ref={(el) => { if (el) cardsRef.current[index] = el; }}
                 className="bg-black border border-neutral-800 rounded-2xl p-6 text-center shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-blue-900/30 rounded-xl mb-4">
-                  <Icon className="w-7 h-7 text-blue-500" />
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-white/5 rounded-xl mb-4">
+                  <Icon className="w-7 h-7 text-gray-200" />
                 </div>
                 <h4 className="text-lg font-bold text-gray-100 mb-2">
                   {highlight.title}
@@ -73,7 +73,7 @@ const Achievements = () => {
         {/* Certifications List */}
         <div className="bg-black border border-neutral-800 rounded-3xl p-6 md:p-12 shadow-sm">
           <h4 className="text-2xl font-bold text-gray-100 mb-8 flex items-center gap-3">
-            <Award className="w-7 h-7 text-blue-500" />
+            <Award className="w-7 h-7 text-gray-200" />
             Professional Certifications
           </h4>
           
@@ -84,11 +84,11 @@ const Achievements = () => {
                 <div
                   key={index}
                   ref={(el) => { if (el) cardsRef.current[highlights.length + index] = el; }}
-                  className="group flex items-start gap-4 p-4 rounded-xl hover:bg-white/5 transition-all duration-200 border border-transparent hover:border-blue-500/50"
+                  className="group flex items-start gap-4 p-4 rounded-xl hover:bg-white/5 transition-all duration-200 border border-transparent hover:border-white/10"
                 >
-                  <div className="flex-shrink-0 w-10 h-10 bg-blue-900/40 rounded-lg flex items-center justify-center">
-                    <Icon className="w-5 h-5 text-blue-500" />
-                  </div>
+                    <div className="flex-shrink-0 w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-gray-200" />
+                    </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-1">
                       <h5 className="font-semibold text-gray-100 leading-tight">
@@ -99,7 +99,7 @@ const Achievements = () => {
                           href={cert.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-500 hover:text-blue-400 transition-colors opacity-0 group-hover:opacity-100 ml-2 flex items-center gap-1 text-xs whitespace-nowrap"
+                          className="text-gray-200 hover:text-gray-300 transition-colors opacity-0 group-hover:opacity-100 ml-2 flex items-center gap-1 text-xs whitespace-nowrap"
                         >
                           <ExternalLink className="w-3 h-3" />
                           Verify
@@ -124,7 +124,7 @@ const Achievements = () => {
           {hackathons.map((hackathon, index) => (
             <span 
               key={index}
-              className="px-4 py-2 bg-blue-900/20 border border-blue-500/30 rounded-full text-sm text-blue-400 font-medium"
+              className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-gray-200 font-medium"
             >
               {hackathon}
             </span>

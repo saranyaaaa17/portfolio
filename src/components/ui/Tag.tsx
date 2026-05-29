@@ -18,7 +18,7 @@ const Tag = ({
 }: TagProps) => {
   const variants = {
     default: 'bg-black text-gray-200 border-zinc-800',
-    primary: 'bg-blue-900/30 text-blue-400 border-blue-900/50',
+    primary: 'bg-white/5 text-gray-100 accent-border',
     outline: 'bg-transparent text-gray-200 border-zinc-700'
   };
 

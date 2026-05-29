@@ -7,15 +7,15 @@ interface AnimationConfig {
 }
 
 export const fadeInUp: AnimationConfig = {
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 16 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.7, ease: "easeOut" }
+  transition: { duration: 0.45, ease: "easeOut" }
 };
 
 export const fadeIn: AnimationConfig = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
-  transition: { duration: 0.7, ease: "easeOut" }
+  transition: { duration: 0.45, ease: "easeOut" }
 };
 
 export const staggerContainer: Variants = {
@@ -23,20 +23,20 @@ export const staggerContainer: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1
+      staggerChildren: 0.06,
+      delayChildren: 0.05
     }
   }
 };
 
 export const staggerItem: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.7,
-      ease: [0.22, 1, 0.36, 1] // Custom cubic-bezier for smoother feel
+      duration: 0.45,
+      ease: [0.22, 1, 0.36, 1]
     }
   }
 };
@@ -48,7 +48,7 @@ export const revealUp: Variants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.8,
+      duration: 0.5,
       ease: [0.22, 1, 0.36, 1]
     }
   }
@@ -59,8 +59,8 @@ export const revealStaggerContainer: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2
+      staggerChildren: 0.05,
+      delayChildren: 0.05
     }
   }
 };
@@ -68,7 +68,7 @@ export const revealStaggerContainer: Variants = {
 // Viewport config for scroll-triggered animations
 export const viewportConfig = {
   once: true,
-  margin: "-20%" // More natural trigger point
+  margin: "-10%" // trigger slightly earlier for faster reveal
 } as const;
 
 // Transition for expandable sections

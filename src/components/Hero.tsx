@@ -1,52 +1,11 @@
 import { motion } from 'framer-motion';
-import { Download, ArrowRight } from 'lucide-react';
+import { Download, ArrowRight, Sparkles } from 'lucide-react';
 import Button from './ui/Button';
 import { revealUp, staggerContainer, staggerItem } from '../utils/motion';
-import React, { MouseEvent, useEffect, useState } from 'react';
-import BackgroundPaths from './ui/BackgroundPaths';
+import React, { MouseEvent } from 'react';
+import { CelestialSphere } from './ui/celestial-sphere';
 
 const Hero = () => {
-    // small inline typewriter that cycles short role phrases
-    const Typewriter: React.FC = () => {
-        const roles = ['Machine Learning', 'Full‑Stack Developer', 'Researcher'];
-        const [index, setIndex] = useState(0);
-        const [sub, setSub] = useState('');
-
-        useEffect(() => {
-            let mounted = true;
-            let i = 0;
-            const type = () => {
-                const full = roles[index];
-                if (!mounted) return;
-                if (i <= full.length) {
-                    setSub(full.slice(0, i));
-                    i += 1;
-                    setTimeout(type, 70);
-                } else {
-                    setTimeout(() => {
-                        if (!mounted) return;
-                        // erase
-                        let j = full.length;
-                        const erase = () => {
-                            if (!mounted) return;
-                            if (j >= 0) {
-                                setSub(full.slice(0, j));
-                                j -= 1;
-                                setTimeout(erase, 30);
-                            } else {
-                                setIndex((s) => (s + 1) % roles.length);
-                            }
-                        };
-                        erase();
-                    }, 1100);
-                }
-            };
-            type();
-            return () => { mounted = false };
-        }, [index]);
-
-        return <span className="text-white font-medium">{sub}<span className="animate-pulse">▌</span></span>;
-    };
     const scrollToProjects = (e: MouseEvent) => {
         e.preventDefault();
         const projectsElement = document.getElementById('projects');
@@ -57,30 +16,27 @@ const Hero = () => {
 
     return (
         <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden bg-black py-20">
-            <BackgroundPaths />
-            {/* Minimalist Depth Background */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
-                {/* Optional: Very subtle glow if needed, otherwise pure black */}
-            </div>
+            <CelestialSphere
+                hue={210}
+                speed={0.4}
+                zoom={1.2}
+                particleSize={4}
+                className="absolute inset-0 h-full w-full"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/10 to-black/45 pointer-events-none" />
 
-            <div className="max-w-4xl mx-auto w-full relative z-10 text-center flex flex-col items-center">
+            <div className="max-w-5xl mx-auto w-full relative z-10">
                 <motion.div
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
-                    className="space-y-10"
+                    className="space-y-8 text-center"
                 >
                     {/* Professional Status */}
                     <motion.div variants={staggerItem} className="flex justify-center">
-                        <div className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/5">
-                                <span className="relative flex h-2 w-2">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/30 opacity-60"></span>
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
-                                </span>
-                                <span className="text-[10px] font-bold text-gray-300 tracking-[0.2em] uppercase">
-                                    Available for opportunities 2026
-                                </span>
-                            </div>
+                        <div className="inline-flex items-center gap-3 rounded-full border accent-border bg-white/5 px-4 py-2 backdrop-blur-md">
+                            <Sparkles className="h-4 w-4 text-white" />
+                        </div>
                     </motion.div>
 
                     {/* Refined Heading with Mask Reveal */}
@@ -88,63 +44,46 @@ const Hero = () => {
                         <div className="reveal-mask overflow-hidden">
                             <motion.h1 
                                 variants={revealUp}
-                                className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-[0.9]"
+                                className="text-5xl font-semibold tracking-tight leading-[0.95] text-white md:text-7xl"
                             >
-                                Saranya <span className="text-transparent bg-clip-text bg-gradient-to-b from-gray-300 to-white">Pothina</span>
+                                Saranya Pothina
                             </motion.h1>
                         </div>
                         <motion.div variants={staggerItem} className="pt-2">
-                            <p className="text-sm text-gray-300">I build — <Typewriter /></p>
+                            <p className="max-w-2xl text-sm uppercase tracking-[0.2em] text-gray-400 md:text-base">
+                                Fresher · ML and full-stack
+                            </p>
                         </motion.div>
                     </div>
-
-                    {/* Impactful Bio */}
-                    <motion.p
-                        variants={staggerItem}
-                        className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-light"
-                    >
-                        Quick-learning CSE student specialising in{' '}
-                        <span className="text-white font-medium">Machine Learning</span>{' '}
-                        and{' '}
-                        <span className="text-white font-medium">Full-Stack Development</span>.
-                        Seeking an entry-level role to apply technical skills and problem-solving in a collaborative team.
-                    </motion.p>
 
                     {/* Focused Actions */}
                     <motion.div
                         variants={staggerItem}
-                        className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6"
+                        className="flex flex-col items-center justify-center gap-4 pt-2 sm:flex-row"
                     >
                         <Button 
                             onClick={scrollToProjects}
                             variant="primary"
                             icon={ArrowRight}
                             iconPosition="right"
-                            className="w-full sm:w-auto px-10 py-4 rounded-xl bg-white text-black font-semibold hover:opacity-95 transition-all duration-300"
+                            className="w-full rounded-xl px-10 py-4 font-semibold sm:w-auto"
                         >
-                            Explore Work
+                            Explore my work
                         </Button>
 
                         <Button 
                             href="https://drive.google.com/file/d/1-eWDwEBZo7CmSrGOS8GKJifP0cWztGFr/view?usp=drive_link"
-                            variant="outline"
+                            variant="primary"
                             icon={Download}
                             iconPosition="left"
-                            className="w-full sm:w-auto px-10 py-4 rounded-xl border-white/10 text-gray-200 hover:border-white/20"
+                            className="w-full rounded-xl px-10 py-4 font-semibold sm:w-auto"
                         >
-                            Download CV
+                            Resume
                         </Button>
                     </motion.div>
                 </motion.div>
             </div>
 
-            <style dangerouslySetInnerHTML={{ __html: `
-                @keyframes scan {
-                    0% { top: -10%; opacity: 0; }
-                    50% { opacity: 1; }
-                    100% { top: 110%; opacity: 0; }
-                }
-            `}} />
         </section>
     );
 };

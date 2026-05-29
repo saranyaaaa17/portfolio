@@ -61,11 +61,11 @@
 
   /* Better Selection */
   ::selection {
-    @apply bg-blue-900 text-white;
+    @apply bg-white/10 text-white;
   }
 
   ::-moz-selection {
-    @apply bg-blue-900 text-white;
+    @apply bg-white/10 text-white;
   }
 
   /* Custom Scrollbar */
@@ -85,6 +85,14 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-neutral-700;
   }
+}
+
+:root {
+  --accent-from: rgba(255,255,255,0.10);
+  --accent-via: rgba(255,255,255,0.06);
+  --accent-to: rgba(255,255,255,0.03);
+  --accent-gradient: linear-gradient(90deg, var(--accent-from), var(--accent-via), var(--accent-to));
+  --project-card-height: 480px;
 }
 
 @layer components {
@@ -139,7 +147,7 @@
   }
 
   .btn-primary {
-    @apply btn-premium bg-blue-500 text-white hover:bg-blue-700;
+    @apply btn-premium bg-white text-black hover:opacity-95;
   }
 
   .btn-secondary {
@@ -148,7 +156,7 @@
 
   .btn-outline {
     @apply btn-premium bg-transparent border-2 border-neutral-700 text-gray-100;
-    @apply hover:border-blue-500 hover:bg-white/5;
+    @apply hover:border-white/10 hover:bg-white/5;
   }
 
   /* Card Styles */
@@ -159,7 +167,7 @@
   }
 
   .card-premium:hover {
-    @apply shadow-premium-2xl border-blue-500;
+    @apply shadow-premium-2xl border-white/10;
   }
 
   /* Section Spacing */
@@ -173,11 +181,63 @@
   }
 }
 
+/* Accent utilities for site theming */
+@layer components {
+  .accent-gradient-bg {
+    background-image: var(--accent-gradient) !important;
+  }
+
+  .accent-gradient-text {
+    background-image: var(--accent-gradient) !important;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+  }
+
+  .accent-progress {
+    background-image: var(--accent-gradient) !important;
+  }
+
+  .accent-border {
+    border-color: rgba(255,255,255,0.08) !important;
+  }
+}
+
+/* 3D perspective container for card tilt */
+.perspective-3d {
+  perspective: 1600px;
+}
+
+/* Card preserve-3d */
+.card-3d {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* LQIP helpers */
+.lqip-bg {
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px) saturate(0.8);
+  transform: scale(1.02);
+}
+
+/* Neon pulse for accent strip */
+.neon-pulse {
+  animation: neonPulse 3s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 6px rgba(164,255,86,0.12); }
+  50% { box-shadow: 0 0 18px rgba(164,255,86,0.22); }
+  100% { box-shadow: 0 0 6px rgba(164,255,86,0.12); }
+}
+
 @layer utilities {
   /* Gradient Text */
   .clip-text-gradient {
     @apply bg-clip-text text-transparent;
-    @apply bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500;
+    @apply bg-gradient-to-r from-white/90 via-white/80 to-white/70;
   }
 
   /* Smooth Transforms */
@@ -187,7 +247,19 @@
 
   /* Focus Styles */
   .focus-premium {
-    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+    @apply focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2;
+  }
+
+  /* Global focus-visible improvements */
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(164,255,86,0.12), 0 0 0 8px rgba(0,0,0,0.6);
+    border-radius: 0.5rem;
+  }
+  button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, [role="article"]:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(164,255,86,0.16), 0 0 0 8px rgba(0,0,0,0.6);
+    border-radius: 0.5rem;
   }
 
   /* Text Balance */

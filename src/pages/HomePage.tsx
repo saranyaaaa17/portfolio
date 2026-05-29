@@ -2,23 +2,31 @@ import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import Stats from '../components/Stats';
 import { motion } from 'framer-motion';
-import { ArrowRight, Code, Briefcase, Trophy } from 'lucide-react';
+import { ArrowRight, Code2, Briefcase, Trophy, Layers3, Image as ImageIcon } from 'lucide-react';
 import { projects } from '../data/projects';
+import { imageMeta } from '../data/imageMeta';
 import { experiences } from '../data/experience';
 import { staggerContainer, staggerItem, viewportConfig } from '../utils/motion';
+import SignInFlowOne from '../components/ui/sign-in-flow-1';
 
 const HomePage = () => {
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero Section */}
-      <Hero />
+      <SignInFlowOne />
 
       {/* Stats Strip */}
       <Stats />
 
       {/* Preview Sections */}
-      <section className="py-24 px-6 md:px-12 bg-black">
-        <div className="max-w-6xl mx-auto space-y-32">
+      <section className="relative bg-black px-6 py-20 md:px-12 md:py-28">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute left-10 top-10 h-56 w-56 rounded-full bg-white/6 blur-3xl" />
+          <div className="absolute right-16 top-1/3 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
+          <div className="absolute bottom-8 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-white/4 blur-3xl" />
+        </div>
+
+        <div className="relative mx-auto max-w-6xl space-y-24 md:space-y-32">
 
           {/* Featured Projects Preview */}
           <motion.div
@@ -26,40 +34,74 @@ const HomePage = () => {
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
+            className="space-y-8 rounded-[2rem] border accent-border bg-white/5 p-6 md:p-8"
           >
-            <motion.div variants={staggerItem} className="flex items-end justify-between mb-12">
-              <div>
-                <p className="text-xs font-bold text-blue-500 uppercase tracking-[0.3em] mb-3">Selected Work</p>
-                <h2 className="text-3xl md:text-4xl font-black text-white tracking-tighter">Featured Projects</h2>
+            <motion.div variants={staggerItem} className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div className="space-y-3">
+                <p className="text-xs font-bold uppercase tracking-[0.3em] text-gray-300">Projects</p>
+                <h2 className="text-3xl font-black tracking-tighter text-white md:text-5xl">A few things I’ve built</h2>
+                <p className="max-w-2xl text-sm leading-relaxed text-gray-400 md:text-base">
+                  A short list of projects I’ve worked on.
+                </p>
               </div>
               <Link
                 to="/projects"
-                className="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors group"
+                className="inline-flex items-center gap-2 self-start text-sm font-semibold text-gray-200 transition-colors hover:text-white group"
               >
                 View All Projects
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </motion.div>
 
-            <div className="space-y-4">
+            <div className="grid gap-4">
               {projects.slice(0, 2).map((project, index) => (
                 <motion.div
                   key={project.id}
                   variants={staggerItem}
-                  className="group p-6 md:p-8 rounded-2xl border border-neutral-800 bg-black hover:border-blue-500/50 hover:bg-blue-950/5 transition-all duration-300"
+                  whileHover={{ y: -4 }}
+                  className="group overflow-hidden rounded-[1.75rem] border accent-border bg-white/5 transition-all duration-300 hover:border-white/20 hover:bg-white/7"
                 >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-8 h-8 bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <Code className="w-4 h-4 text-blue-400" />
+                  <div className="relative h-40 overflow-hidden border-b border-white/8 bg-black/70 md:h-52">
+                    {project.screenshot ? (
+                      <>
+                        <div
+                          className="absolute inset-0 bg-cover bg-center blur-[8px] scale-105 opacity-60"
+                          style={{ backgroundImage: `url(${(imageMeta as any)[project.screenshot]?.lqip ?? project.screenshot})` }}
+                        />
+                        <img
+                          src={project.screenshot}
+                          alt={`${project.title} screenshot`}
+                          className="relative h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </>
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),rgba(0,0,0,0.92)_72%)] text-center">
+                        <div className="space-y-3">
+                          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white/80">
+                            <ImageIcon className="h-5 w-5" />
+                          </div>
+                          <div className="rounded-full border border-white/10 bg-black/55 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.26em] text-gray-200">
+                            Under working
+                          </div>
                         </div>
-                        <h3 className="text-lg font-bold text-gray-100">{project.title}</h3>
                       </div>
-                      <p className="text-sm text-gray-400 leading-relaxed mb-4">{project.summary}</p>
+                    )}
+                  </div>
+                  <div className="h-1 w-full accent-gradient-bg opacity-90" />
+                  <div className="flex items-start justify-between gap-5 p-6 md:p-8">
+                    <div className="flex-1">
+                          <div className="mb-3 flex items-center gap-3">
+                            <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border accent-border bg-black/70">
+                              <Code2 className="h-4 w-4 text-gray-100" />
+                            </div>
+                        <h3 className="text-lg font-bold text-gray-100 md:text-xl">{project.title}</h3>
+                      </div>
+                      <p className="mb-4 text-sm leading-relaxed text-gray-400">{project.summary}</p>
                       <div className="flex flex-wrap gap-2">
                         {project.techStack.slice(0, 3).map((tech, i) => (
-                          <span key={i} className="px-2.5 py-1 bg-black border border-neutral-800 text-gray-400 text-xs font-medium rounded-lg">
+                          <span key={i} className="rounded-lg border accent-border bg-black/70 px-2.5 py-1 text-xs font-medium text-gray-300">
                             {tech}
                           </span>
                         ))}
@@ -68,7 +110,7 @@ const HomePage = () => {
                         )}
                       </div>
                     </div>
-                    <span className="text-2xl font-black text-neutral-800 group-hover:text-blue-900/50 transition-colors flex-shrink-0">
+                    <span className="flex-shrink-0 text-2xl font-black text-white/15 transition-colors group-hover:text-white/35">
                       0{index + 1}
                     </span>
                   </div>
@@ -79,7 +121,7 @@ const HomePage = () => {
             <motion.div variants={staggerItem} className="mt-6 sm:hidden">
               <Link
                 to="/projects"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-gray-200 transition-colors hover:text-white"
               >
                 View All Projects <ArrowRight className="w-4 h-4" />
               </Link>
@@ -92,38 +134,43 @@ const HomePage = () => {
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
+            className="space-y-8"
           >
-            <motion.div variants={staggerItem} className="flex items-end justify-between mb-12">
-              <div>
-                <p className="text-xs font-bold text-blue-500 uppercase tracking-[0.3em] mb-3">Work History</p>
-                <h2 className="text-3xl md:text-4xl font-black text-white tracking-tighter">Experience</h2>
+            <motion.div variants={staggerItem} className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div className="space-y-3">
+                <p className="text-xs font-bold uppercase tracking-[0.3em] text-gray-300">Experience</p>
+                <h2 className="text-3xl font-black tracking-tighter text-white md:text-5xl">Experience</h2>
+                <p className="max-w-2xl text-sm leading-relaxed text-gray-400 md:text-base">
+                  Internships and internships learnings.
+                </p>
               </div>
               <Link
                 to="/experience"
-                className="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors group"
+                className="inline-flex items-center gap-2 self-start text-sm font-semibold text-gray-200 transition-colors hover:text-white group"
               >
                 Full Timeline
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </motion.div>
 
-            <div className="space-y-4">
+            <div className="grid gap-4">
               {experiences.slice(0, 2).map((exp, index) => (
                 <motion.div
                   key={index}
                   variants={staggerItem}
-                  className="group p-6 md:p-8 rounded-2xl border border-neutral-800 bg-black hover:border-blue-500/50 hover:bg-blue-950/5 transition-all duration-300"
+                  whileHover={{ y: -3 }}
+                  className="group rounded-[1.75rem] border accent-border bg-white/5 p-6 transition-all duration-300 hover:border-white/10 hover:bg-white/7 md:p-8"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-blue-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Briefcase className="w-5 h-5 text-blue-400" />
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border accent-border bg-black/70">
+                      <Briefcase className="h-5 w-5 text-gray-100" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
                         <h3 className="font-bold text-gray-100">{exp.role}</h3>
-                        <span className="text-xs text-gray-500 bg-white/5 px-3 py-1 rounded-full border border-neutral-800 whitespace-nowrap">{exp.period}</span>
+                        <span className="whitespace-nowrap rounded-full border accent-border bg-black/60 px-3 py-1 text-xs text-gray-400">{exp.period}</span>
                       </div>
-                      <p className="text-sm text-blue-400 font-medium mt-1">{exp.company}</p>
+                      <p className="text-sm text-gray-200 font-medium mt-1">{exp.company}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -133,7 +180,7 @@ const HomePage = () => {
             <motion.div variants={staggerItem} className="mt-6 sm:hidden">
               <Link
                 to="/experience"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-gray-200 transition-colors hover:text-white"
               >
                 Full Timeline <ArrowRight className="w-4 h-4" />
               </Link>
@@ -146,35 +193,39 @@ const HomePage = () => {
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
+            className="space-y-8"
           >
-            <motion.div variants={staggerItem} className="flex items-end justify-between mb-12">
-              <div>
-                <p className="text-xs font-bold text-blue-500 uppercase tracking-[0.3em] mb-3">Recognition</p>
-                <h2 className="text-3xl md:text-4xl font-black text-white tracking-tighter">Achievements</h2>
+            <motion.div variants={staggerItem} className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div className="space-y-3">
+                <p className="text-xs font-bold uppercase tracking-[0.3em] text-gray-300">Achievements</p>
+                <h2 className="text-3xl font-black tracking-tighter text-white md:text-5xl">Achievements</h2>
+                <p className="max-w-2xl text-sm leading-relaxed text-gray-400 md:text-base">
+                  Certifications and events I’ve been part of.
+                </p>
               </div>
               <Link
                 to="/achievements"
-                className="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors group"
+                className="inline-flex items-center gap-2 self-start text-sm font-semibold text-gray-200 transition-colors hover:text-white group"
               >
                 View All
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </motion.div>
 
-            <motion.div variants={staggerItem} className="p-6 md:p-10 rounded-2xl border border-neutral-800 bg-black">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <motion.div variants={staggerItem} className="rounded-[1.75rem] border accent-border bg-white/5 p-6 md:p-10">
+              <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
                 <div className="flex items-center gap-5">
-                  <div className="w-14 h-14 bg-blue-900/30 rounded-2xl flex items-center justify-center flex-shrink-0">
-                    <Trophy className="w-7 h-7 text-blue-400" />
+                  <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl border accent-border bg-black/70">
+                    <Trophy className="h-7 w-7 text-gray-100" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-100 mb-1">11 Certifications</h3>
+                    <h3 className="mb-1 text-xl font-bold text-gray-100">11 Certifications</h3>
                     <p className="text-sm text-gray-400">Oracle, HackerRank, FreeCodeCamp, GeeksforGeeks & more</p>
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2">
                   {['GDG WowVizag', 'HackVortex', 'Google Agentic AI'].map((h, i) => (
-                    <span key={i} className="px-3 py-1.5 bg-blue-900/20 border border-blue-500/30 rounded-full text-xs text-blue-400 font-medium">
+                    <span key={i} className="rounded-full border accent-border bg-black/60 px-3 py-1.5 text-xs font-medium text-gray-200">
                       {h}
                     </span>
                   ))}
@@ -185,7 +236,7 @@ const HomePage = () => {
             <motion.div variants={staggerItem} className="mt-6 sm:hidden">
               <Link
                 to="/achievements"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-gray-200 transition-colors hover:text-white"
               >
                 View All <ArrowRight className="w-4 h-4" />
               </Link>
@@ -198,18 +249,21 @@ const HomePage = () => {
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
-            className="text-center py-16 border-t border-neutral-800"
+            className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/8 to-white/3 px-6 py-16 text-center backdrop-blur-xl md:px-10"
           >
-            <p className="text-xs font-bold text-blue-500 uppercase tracking-[0.3em] mb-4">Let's Work Together</p>
-            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter mb-6">
-              Open to Opportunities
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/50 px-4 py-2">
+              <Layers3 className="h-4 w-4 text-white" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-gray-300">Contact</span>
+            </div>
+            <h2 className="mb-6 text-3xl font-black tracking-tighter text-white md:text-5xl">
+              Let’s talk
             </h2>
-            <p className="text-gray-400 max-w-xl mx-auto mb-10 leading-relaxed">
-              I'm actively looking for internship and full-time roles in ML, full-stack development, and AI engineering. Let's connect.
+            <p className="mx-auto mb-10 max-w-xl leading-relaxed text-gray-400">
+              I’m open to internships and entry-level roles.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-blue-500 text-white rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-3 rounded-xl bg-white px-8 py-4 font-semibold text-black shadow-lg shadow-white/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-white/20 hover:opacity-95"
             >
               Get In Touch
               <ArrowRight className="w-4 h-4" />

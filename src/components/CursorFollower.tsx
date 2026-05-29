@@ -17,12 +17,12 @@ const CursorFollower = () => {
     y: useSpring(0, springConfig)
   }));
 
-  // Shades of UI Blue for the trail
+  // Monochrome shades for the trail
   const colors = [
-    '#3B82F6', // blue-500
-    '#2563EB', // blue-600
-    '#1D4ED8', // blue-700
-    '#1E3A8A'  // blue-900
+    'rgba(255,255,255,0.9)',
+    'rgba(255,255,255,0.6)',
+    'rgba(255,255,255,0.4)',
+    'rgba(255,255,255,0.2)'
   ];
 
   useEffect(() => {
@@ -86,14 +86,14 @@ const CursorFollower = () => {
             backgroundColor: colors[index],
             opacity: 1 - (index * 0.25),
             scale: isHovering ? 1.5 : 1,
-            boxShadow: index === 0 ? `0 0 15px ${colors[0]}` : 'none'
+            boxShadow: index === 0 ? `0 0 12px ${colors[0]}` : 'none'
           }}
         />
       ))}
       
       {/* Outer focus Ring */}
       <motion.div
-        className="fixed top-0 left-0 border border-blue-500/30 rounded-full"
+        className="fixed top-0 left-0 border accent-border rounded-full"
         style={{
           x: points[0].x,
           y: points[0].y,
