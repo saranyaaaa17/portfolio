@@ -14,12 +14,17 @@ const Education = () => {
       {/* Education sub-heading */}
       <h2 className="text-2xl font-bold text-gray-100 mb-10">Academic Journey</h2>
 
-      <div className="space-y-8">
+      <motion.div 
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportConfig}
+        className="space-y-8"
+      >
         {educationList.map((edu, index) => (
           <motion.div
             key={index}
-            {...fadeInUp}
-            transition={{ ...fadeInUp.transition, delay: index * 0.1 }}
+            variants={staggerItem}
             className="p-6 md:p-8 rounded-xl border border-neutral-800 bg-black shadow-sm hover:shadow-md transition-all duration-300"
           >
             {/* Header */}
@@ -73,7 +78,7 @@ const Education = () => {
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
 
     </SectionContainer>
   );
