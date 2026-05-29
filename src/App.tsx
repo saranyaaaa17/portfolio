@@ -27,14 +27,14 @@ function App() {
 
   return (
     <Router>
-      <div className="bg-black min-h-screen font-sans text-gray-100 selection:bg-blue-100 selection:text-blue-900 relative">
+      <div className="bg-black min-h-screen font-sans text-gray-100 selection:bg-white/10 selection:text-white relative">
 
         {/* Custom Trailing Cursor */}
         <CursorFollower />
 
         {/* Scroll Progress Bar */}
         <motion.div
-          className="fixed top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-500 origin-left z-50"
+          className="fixed top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-white/80 via-white/60 to-white/40 origin-left z-50"
           style={{ scaleX }}
         />
 
@@ -74,7 +74,7 @@ function App() {
                 <span
                   className="text-lg font-bold tracking-tight"
                   style={{
-                    background: 'linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%)',
+                    background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',
@@ -96,7 +96,7 @@ function App() {
                 href="https://github.com/saranyaaaa17"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-blue-500 text-gray-400 hover:text-white flex items-center justify-center transition-all duration-200 border border-neutral-800 hover:border-blue-500"
+                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white flex items-center justify-center transition-all duration-200 border border-neutral-800 hover:border-white/20"
                 aria-label="GitHub"
               >
                 <Github className="w-4 h-4" />
@@ -105,14 +105,14 @@ function App() {
                 href="https://linkedin.com/in/saranya-pothina-806670274"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-blue-500 text-gray-400 hover:text-white flex items-center justify-center transition-all duration-200 border border-neutral-800 hover:border-blue-500"
+                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white flex items-center justify-center transition-all duration-200 border border-neutral-800 hover:border-white/20"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
               <a
                 href="mailto:saranyapothina07@gmail.com"
-                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-blue-500 text-gray-400 hover:text-white flex items-center justify-center transition-all duration-200 border border-neutral-800 hover:border-blue-500"
+                className="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white flex items-center justify-center transition-all duration-200 border border-neutral-800 hover:border-white/20"
                 aria-label="Email"
               >
                 <Mail className="w-4 h-4" />
