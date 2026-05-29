@@ -9,6 +9,7 @@ import SkillsPage from './pages/SkillsPage';
 import ContactPage from './pages/ContactPage';
 import AchievementsPage from './pages/AchievementsPage';
 import ResumePage from './pages/ResumePage';
+import HyperTextDemo from './pages/HyperTextDemo';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail } from 'lucide-react';
@@ -47,6 +48,7 @@ function App() {
           <Route path="/achievements" element={<AchievementsPage />} />
           <Route path="/skills" element={<SkillsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/demo/hypertext" element={<HyperTextDemo />} />
         </Routes>
 
         {/* Footer */}
