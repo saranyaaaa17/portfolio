@@ -30,9 +30,9 @@ const Button = ({
   const baseStyles = "inline-flex items-center justify-center px-6 py-2.5 text-sm md:px-8 md:py-3 md:text-base font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2";
   
   const variants = {
-    primary: "bg-blue-500 text-white hover:bg-blue-500 focus:ring-blue-500 shadow-sm hover:shadow-md",
+    primary: "bg-gradient-to-r from-[#4285F4] via-[#34A853] to-[#FBBC05] text-black hover:opacity-95 focus:ring-white/20 shadow-sm hover:shadow-md",
     secondary: "bg-black text-white hover:bg-zinc-800 focus:ring-zinc-700 shadow-sm hover:shadow-md",
-    outline: "bg-transparent text-gray-100 border border-neutral-700 hover:bg-white/5 hover:border-blue-500 focus:ring-neutral-700 shadow-sm hover:shadow-md"
+    outline: "bg-transparent text-gray-100 border border-neutral-700 hover:bg-white/5 hover:border-white/10 focus:ring-neutral-700 shadow-sm hover:shadow-md"
   };
 
   const Component: any = href ? motion.a : motion.button;

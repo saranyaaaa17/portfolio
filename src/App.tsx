@@ -69,18 +69,7 @@ function App() {
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
                 <span className="text-lg font-bold text-white tracking-tight group-hover:text-gray-200 transition-colors">
-                  Saranya
-                </span>
-                <span
-                  className="text-lg font-bold tracking-tight"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  .dev
+                  Saranya Pothina
                 </span>
               </motion.div>
             </Link>
