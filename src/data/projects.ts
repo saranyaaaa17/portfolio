@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     id: 4,
     title: "AI Resume Analyzer Web Application",
-    summary: "Cloud-deployed AI resume analysis with parsing, entity extraction, and LLM feedback",
+    summary: "A comprehensive platform that evaluates resumes against job descriptions, providing ATS scores, skill gaps, and AI-driven improvement suggestions.",
     problem: "Recruiters and applicants need fast, actionable feedback on resumes; manual reviews are slow and inconsistent.",
     approach: "Built a scalable FastAPI backend to parse PDF/DOC resumes, extract entities, index embeddings in ChromaDB, and generate targeted feedback using OpenAI/Gemini LLMs. Implemented asynchronous processing with Celery + Redis and a responsive React + TypeScript front-end for uploads and progress tracking.",
     techStack: ["Python", "FastAPI", "Celery", "Redis", "PostgreSQL", "React", "TypeScript", "Docker", "ChromaDB", "OpenAI/Gemini APIs"],
@@ -26,7 +26,7 @@ export const projects: Project[] = [
   {
     id: 1,
     title: "Multi-Agent AI Tutor",
-    summary: "An intelligent tutoring system using coordinated AI agents",
+    summary: "A production-ready multi-agent tutoring platform that provides staff-level mentorship at scale through coordinated specialized agents.",
     problem: "Traditional learning platforms provide generic responses that don't adapt to individual learning patterns.",
     approach: "Developed a multi-agent architecture where specialized agents handle different aspects of tutoring and communicate to build learner profiles and adaptive explanations.",
     techStack: ["JavaScript", "Node", "NLP", "Multi-Agent Systems"],
@@ -40,7 +40,7 @@ export const projects: Project[] = [
   {
     id: 2,
     title: "Heart Disease Prediction Model",
-    summary: "A machine learning model for cardiovascular risk assessment",
+    summary: "An enterprise-grade ML application that predicts cardiovascular risk from clinical metrics and offers explainable insights.",
     problem: "Manual risk assessment may miss subtle patterns; automated approaches can help identify high-risk individuals sooner.",
     approach: "Built and evaluated supervised models with careful preprocessing, feature selection, and validation.",
     techStack: ["Python", "Scikit-learn", "Pandas", "Jupyter"],
@@ -54,14 +54,16 @@ export const projects: Project[] = [
   {
     id: 5,
     title: "CreatorFlow",
-    summary: "A workflow platform for creators to manage content and publishing",
+    summary: "An AI-powered creator management platform — an editorial OS for planning, scheduling and publishing content across social platforms.",
     problem: "Creators need streamlined tooling to manage content, scheduling, and distribution.",
     approach: "Built a TypeScript-based web app focusing on content flows, scheduling, and integrations.",
     techStack: ["TypeScript", "React", "Node"],
     challenges: ["Designing an intuitive content flow", "Integrating publishing endpoints"],
     learnings: ["UX for creator tools", "API integrations"],
     github: "https://github.com/saranyaaaa17/CreatorFlow",
-    live: null
+    live: null,
+    screenshot: "/screenshots/creatorflow.png",
+    screenshots: ["/screenshots/creatorflow.png"]
   },
   {
     id: 6,
