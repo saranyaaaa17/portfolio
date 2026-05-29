@@ -1,5 +1,5 @@
 import React from 'react';
-import { CircularGallery, GalleryItem } from '@/components/ui/circular-gallery';
+import { CircularGallery, GalleryItem } from '@/components/ui';
 
 const galleryData: GalleryItem[] = [
   {
