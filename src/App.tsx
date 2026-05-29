@@ -12,6 +12,7 @@ import ResumePage from './pages/ResumePage';
 import HyperTextDemo from './pages/HyperTextDemo';
 import DemoMouseEyes from './pages/DemoMouseEyes';
 import DemoCardCurtain from './pages/DemoCardCurtain';
+import DemoCircularGallery from './pages/DemoCircularGallery';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail } from 'lucide-react';
@@ -53,6 +54,7 @@ function App() {
           <Route path="/demo/hypertext" element={<HyperTextDemo />} />
           <Route path="/demo/mouse-eyes" element={<DemoMouseEyes />} />
           <Route path="/demo/card-curtain" element={<DemoCardCurtain />} />
+          <Route path="/demo/circular-gallery" element={<DemoCircularGallery />} />
         </Routes>
 
         {/* Footer */}
