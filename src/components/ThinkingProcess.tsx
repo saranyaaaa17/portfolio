@@ -42,9 +42,9 @@ const ThinkingProcess = () => {
               }`}
             >
               <div className="flex items-start gap-4 md:gap-6">
-                {/* Number Badge */}
-                <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-lg bg-blue-500 text-white font-bold text-base md:text-lg flex items-center justify-center">
-                  {card.id}
+                {/* Icon Badge */}
+                <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-lg border-2 border-blue-500 text-blue-500 flex items-center justify-center">
+                  <card.icon className="w-4 h-4 md:w-5 md:h-5" strokeWidth={2.5} />
                 </div>
                 
                 <div className="flex-1">

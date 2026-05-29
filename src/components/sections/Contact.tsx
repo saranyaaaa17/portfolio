@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { SectionContainer, SectionHeader, Button } from '../ui';
+import { SectionContainer, Button } from '../ui';
 import { fadeInUp } from '../../utils/motion';
 import { Mail } from 'lucide-react';
 
@@ -10,14 +10,43 @@ const Contact = () => {
   return (
     <SectionContainer id="contact" background="gray">
       
-      <SectionHeader 
-        label="Get In Touch"
-        title="Let's Connect"
-        subtitle="I'm currently open to internship and full-time opportunities. Feel free to reach out if you have any questions or just want to say hi."
-      />
 
-      {/* Contact Methods Grid */}
+      {/* Quick Contact Form + Contact Methods Grid */}
       <div className="grid md:grid-cols-2 gap-6 mb-12">
+        {/* Simple contact form that opens mail client (mailto) */}
+        <div className="bg-black border border-neutral-800 rounded-2xl p-6">
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            const form = e.target as HTMLFormElement & { name: any, email: any, phone: any, message: any };
+            const name = encodeURIComponent(form.name.value || '');
+            const email = encodeURIComponent(form.email.value || '');
+            const phone = encodeURIComponent(form.phone.value || '');
+            const message = encodeURIComponent(form.message.value || '');
+            const subject = encodeURIComponent(`Website message from ${name || email}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`);
+            window.location.href = `mailto:saranyapothina07@gmail.com?subject=${subject}&body=${body}`;
+          }}>
+            <div className="mb-3">
+              <label className="text-xs text-gray-400">Name</label>
+              <input name="name" className="w-full mt-1 p-3 rounded-md bg-white/3 border border-neutral-800 text-gray-100" placeholder="What's your name?" />
+            </div>
+            <div className="mb-3">
+              <label className="text-xs text-gray-400">Email</label>
+              <input name="email" type="email" className="w-full mt-1 p-3 rounded-md bg-white/3 border border-neutral-800 text-gray-100" placeholder="What's your email-id?" />
+            </div>
+            <div className="mb-3">
+              <label className="text-xs text-gray-400">Phone</label>
+              <input name="phone" className="w-full mt-1 p-3 rounded-md bg-white/3 border border-neutral-800 text-gray-100" placeholder="What's your phone number?" />
+            </div>
+            <div className="mb-4">
+              <label className="text-xs text-gray-400">Message</label>
+              <textarea name="message" rows={4} className="w-full mt-1 p-3 rounded-md bg-white/3 border border-neutral-800 text-gray-100" placeholder="What's your message to me?" />
+            </div>
+            <div className="text-right">
+              <Button type="submit" variant="primary">Send</Button>
+            </div>
+          </form>
+        </div>
         {contactMethods.map((method, index) => {
           const Icon = method.icon;
           const content = (
@@ -76,6 +105,9 @@ const Contact = () => {
         >
           Send Email
         </Button>
+        <div className="mt-4">
+          <Button href="https://drive.google.com/file/d/1-eWDwEBZo7CmSrGOS8GKJifP0cWztGFr/view?usp=drive_link" variant="outline">Download CV</Button>
+        </div>
       </motion.div>
 
     </SectionContainer>

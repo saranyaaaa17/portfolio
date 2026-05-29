@@ -2,63 +2,101 @@ import { Project } from '../types';
 
 export const projects: Project[] = [
   {
+    id: 4,
+    title: "AI Resume Analyzer Web Application",
+    summary: "Cloud-deployed AI resume analysis with parsing, entity extraction, and LLM feedback",
+    problem: "Recruiters and applicants need fast, actionable feedback on resumes; manual reviews are slow and inconsistent.",
+    approach: "Built a scalable FastAPI backend to parse PDF/DOC resumes, extract entities, index embeddings in ChromaDB, and generate targeted feedback using OpenAI/Gemini LLMs. Implemented asynchronous processing with Celery + Redis and a responsive React + TypeScript front-end for uploads and progress tracking.",
+    techStack: ["Python", "FastAPI", "Celery", "Redis", "PostgreSQL", "React", "TypeScript", "Docker", "ChromaDB", "OpenAI/Gemini APIs"],
+    challenges: [
+      "Reliable parsing and entity extraction across varied resume formats",
+      "Designing an async pipeline for long-running LLM tasks with user feedback",
+      "Keeping costs and latency manageable when calling large LLMs"
+    ],
+    learnings: [
+      "Productionized an LLM-backed pipeline with background task orchestration",
+      "Integrated vector DBs for retrieval-augmented generation (RAG)",
+      "Improved robustness by adding retries, validation, and monitoring for async jobs"
+    ],
+    github: "https://github.com/saranyaaaa17/AI-Resume-analyzer",
+    live: "https://ai-resume-frontend-574902955161.us-central1.run.app/",
+    screenshot: "/screenshots/ai-resume-analyzer.png",
+    screenshots: ["/screenshots/ai-resume-analyzer.png"]
+  },
+  {
     id: 1,
     title: "Multi-Agent AI Tutor",
     summary: "An intelligent tutoring system using coordinated AI agents",
-    problem: "Traditional learning platforms provide generic responses that don't adapt to individual learning patterns. Students often struggle with concepts because explanations lack personalization and context-awareness.",
-    approach: "Developed a multi-agent architecture where specialized agents handle different aspects of tutoring—one for content delivery, another for adaptive feedback, and a third for knowledge assessment. The agents communicate to build a learner profile and adjust explanations based on demonstrated understanding.",
-    techStack: ["Python", "TensorFlow", "NLP", "Multi-Agent Systems", "Machine Learning"],
-    challenges: [
-      "Coordinating multiple agents without creating response conflicts or redundancy",
-      "Designing a feedback loop that genuinely adapts rather than just varying pre-written responses",
-      "Managing agent communication overhead to keep response times acceptable"
-    ],
-    learnings: [
-      "Learned how to structure modular AI systems where components work independently but share state",
-      "Gained experience in natural language processing for educational content",
-      "Understood the complexity of building truly adaptive systems versus rule-based ones"
-    ],
-    github: "https://github.com/saranyaaaa17/agentic-ai-tutor",
-    live: null
+    problem: "Traditional learning platforms provide generic responses that don't adapt to individual learning patterns.",
+    approach: "Developed a multi-agent architecture where specialized agents handle different aspects of tutoring and communicate to build learner profiles and adaptive explanations.",
+    techStack: ["JavaScript", "Node", "NLP", "Multi-Agent Systems"],
+    challenges: ["Coordinating agents without response conflicts", "Designing adaptive feedback loops"],
+    learnings: ["Modular AI design", "NLP for educational content"],
+    github: "https://github.com/saranyaaaa17/Agentic-ai-tutor",
+    live: "https://agentic-ai-tutor-rho.vercel.app/",
+    screenshot: "/screenshots/agentic-ai-tutor.png",
+    screenshots: ["/screenshots/agentic-ai-tutor.png"]
   },
   {
     id: 2,
     title: "Heart Disease Prediction Model",
     summary: "A machine learning model for cardiovascular risk assessment",
-    problem: "Early detection of heart disease risk can significantly improve patient outcomes, but manual risk assessment is time-consuming and may miss subtle patterns in health data. A data-driven approach could assist in identifying high-risk individuals.",
-    approach: "Built a supervised learning model using logistic regression on structured health metrics (cholesterol, blood pressure, age, BMI, etc.). The model classifies individuals into risk categories based on historical patient data with known outcomes.",
-    techStack: ["Python", "Scikit-learn", "Pandas", "Seaborn", "Matplotlib", "Jupyter Notebook"],
-    challenges: [
-      "Handling missing data and deciding between imputation strategies or removal",
-      "Addressing class imbalance in the dataset (fewer positive cases than negative)",
-      "Selecting relevant features without overfitting to training data"
-    ],
-    learnings: [
-      "Understood the importance of data preprocessing in model performance",
-      "Learned to evaluate models beyond just accuracy—precision and recall matter significantly in medical contexts",
-      "Gained practical experience with scikit-learn's pipeline architecture for reproducible workflows"
-    ],
+    problem: "Manual risk assessment may miss subtle patterns; automated approaches can help identify high-risk individuals sooner.",
+    approach: "Built and evaluated supervised models with careful preprocessing, feature selection, and validation.",
+    techStack: ["Python", "Scikit-learn", "Pandas", "Jupyter"],
+    challenges: ["Missing data handling", "Class imbalance", "Feature selection"],
+    learnings: ["Importance of preprocessing", "Evaluation beyond accuracy"],
     github: "https://github.com/saranyaaaa17/Heart-Disease-Prediction",
+    live: null,
+    screenshot: "/screenshots/heart-disease-prediction.png",
+    screenshots: ["/screenshots/heart-disease-prediction.png"]
+  },
+  {
+    id: 5,
+    title: "CreatorFlow",
+    summary: "A workflow platform for creators to manage content and publishing",
+    problem: "Creators need streamlined tooling to manage content, scheduling, and distribution.",
+    approach: "Built a TypeScript-based web app focusing on content flows, scheduling, and integrations.",
+    techStack: ["TypeScript", "React", "Node"],
+    challenges: ["Designing an intuitive content flow", "Integrating publishing endpoints"],
+    learnings: ["UX for creator tools", "API integrations"],
+    github: "https://github.com/saranyaaaa17/CreatorFlow",
     live: null
   },
   {
-    id: 3,
-    title: "Personal Portfolio Website",
-    summary: "A modern, responsive portfolio to showcase projects and skills",
-    problem: "Generic portfolio templates don't reflect individual personality or technical skills. I needed a custom solution that demonstrates both design sensibility and front-end development capabilities while remaining clean and professional.",
-    approach: "Designed and built a custom React-based portfolio from scratch using modern web technologies. Focused on creating a premium user experience with smooth animations, responsive design, and accessible navigation.",
-    techStack: ["React", "Tailwind CSS", "Framer Motion", "Vite", "Responsive Design"],
-    challenges: [
-      "Balancing aesthetic design with performance—keeping animations smooth without heavy libraries",
-      "Ensuring accessibility while using advanced visual effects",
-      "Creating a cohesive design system that scales across all sections"
-    ],
-    learnings: [
-      "Learned to use Framer Motion's declarative animation API for complex interactions",
-      "Gained experience with modern build tools (Vite) and their performance benefits",
-      "Understood the importance of responsive design patterns and mobile-first thinking"
-    ],
-    github: "https://github.com/saranyaaaa17/portfolio-v1",
-    live: "https://saranyaa.me"
+    id: 6,
+    title: "AUREON",
+    summary: "A TypeScript web project showcasing frontend architecture and interactions",
+    problem: "Needed a structured frontend codebase to prototype interactions and components.",
+    approach: "Implemented reusable components and modular styles in TypeScript.",
+    techStack: ["TypeScript", "React", "Tailwind"],
+    challenges: ["Component design", "State management"],
+    learnings: ["Scalable component patterns", "TypeScript ergonomics"],
+    github: "https://github.com/saranyaaaa17/AUREON",
+    live: null
+  },
+  {
+    id: 7,
+    title: "devconnect",
+    summary: "A portfolio showcase platform for developers",
+    problem: "Developers need an easy way to showcase projects and profiles in one place.",
+    approach: "Built a platform to list developer portfolios, projects, and contact links.",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    challenges: ["Designing flexible portfolio layouts", "Filtering and search"],
+    learnings: ["Design for showcase content", "Responsive layouts"],
+    github: "https://github.com/saranyaaaa17/devconnect",
+    live: null
+  },
+  {
+    id: 8,
+    title: "YouTube Clone",
+    summary: "A frontend replica of YouTube to demonstrate UI and interaction patterns",
+    problem: "Learning by rebuilding common interfaces helps understand frontend challenges.",
+    approach: "Recreated key UI patterns, video listings, and responsive player layout.",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    challenges: ["Responsive media layout", "Player controls"],
+    learnings: ["Media layout patterns", "Accessible controls"],
+    github: "https://github.com/saranyaaaa17/youtubeclone",
+    live: null
   }
 ];

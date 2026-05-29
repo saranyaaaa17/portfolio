@@ -1,32 +1,31 @@
 import { motion } from 'framer-motion';
-import { SectionContainer, SectionHeader } from './ui';
+import { SectionContainer } from './ui';
 import { revealUp, staggerContainer, staggerItem, viewportConfig } from '../utils/motion';
 
 const About = () => {
   const values = [
     {
-      title: "Clarity",
-      description: "Writing code and documentation that is easy for others to understand and maintain."
+      title: "Teamwork",
+      description: "Collaborating effectively within teams to deliver consistent, reliable results."
     },
     {
-      title: "Structured Thinking",
-      description: "Breaking down large problems into manageable, logical steps."
+      title: "Time Management",
+      description: "Delivering work on schedule by prioritising tasks and managing effort efficiently."
     },
     {
-      title: "Consistency",
-      description: "Consistently delivering reliable work over bursts of effort."
+      title: "Leadership",
+      description: "Taking initiative, guiding peers, and owning outcomes — demonstrated through NCC 'A' certification and college projects."
+    },
+    {
+      title: "Adaptability",
+      description: "Quick to learn new tools, frameworks, and domains — from ML internships to full-stack development."
     }
   ];
 
   return (
     <SectionContainer id="about" background="white">
-      
-      <SectionHeader 
-        label="About Me"
-        title="Background & Approach"
-      />
-      
-      {/* Main Content */}
+
+      {/* Summary (updated from resume) */}
       <div className="reveal-mask overflow-hidden">
         <motion.div
           variants={revealUp}
@@ -36,33 +35,33 @@ const About = () => {
           className="space-y-6 text-lg text-gray-200 leading-relaxed mb-16 font-light"
         >
           <p>
-            I am a Computer Science student based in{' '}
-            <span className="font-semibold text-white">Visakhapatnam</span>, graduating in{' '}
-            <span className="font-semibold text-white">2026</span>. My focus is on building a foundation in core computing principles while exploring{' '}
-            <span className="font-semibold text-blue-400">machine learning</span>{' '}
-            and{' '}
-            <span className="font-semibold text-blue-400">web development</span>.
+            <span className="font-semibold text-white">AI/ML Engineer</span> with experience building AI-powered applications, scalable backend systems, and full-stack web applications using Python, FastAPI, and React. Skilled in REST APIs, LLM integration, vector databases, cloud deployment, and machine learning workflows with strong problem-solving and debugging abilities.
           </p>
-          
+
           <p>
-            I learn by building—taking concepts apart to understand how they work internally before applying them in new contexts. Through internships in ML and web development, I've learned that good software works{' '}
-            <span className="font-semibold text-white">consistently</span>{' '}
-            under real-world constraints.
+            I focus on building reliable systems that connect ML models to production workflows — from data preprocessing and feature engineering to API design and asynchronous background processing. I enjoy working end-to-end on product features and improving reliability through testing and validation.
           </p>
-          
+
           <p>
-            I'm looking for roles that value{' '}
-            <span className="font-semibold text-white">technical consistency</span>{' '}
-            and{' '}
-            <span className="font-semibold text-white">clear thinking</span>. My goal is to build reliable systems that solve problems without unnecessary complexity.
+            Currently based in <span className="font-semibold text-white">Visakhapatnam</span>, graduating in <span className="font-semibold text-white">2026</span>. Open to entry-level roles in machine learning engineering and full-stack development.
           </p>
         </motion.div>
       </div>
 
-      {/* Values Section */}
-      <div className="pt-12 border-t border-neutral-800">
-        <h4 className="text-xl font-bold text-gray-100 mb-8">What I Value</h4>
-        
+      {/* Languages */}
+      <div className="mb-10 flex flex-wrap items-center gap-3">
+        <span className="text-sm font-semibold text-gray-400 uppercase tracking-widest">Languages:</span>
+        {['English', 'Telugu', 'Hindi'].map((lang) => (
+          <span key={lang} className="px-3 py-1 bg-white/5 border border-neutral-800 text-gray-300 text-sm rounded-full">
+            {lang}
+          </span>
+        ))}
+      </div>
+
+      {/* Soft Skills / Values */}
+      <div className="pt-10 border-t border-neutral-800">
+        <h4 className="text-xl font-bold text-gray-100 mb-8">Soft Skills</h4>
+
         <motion.ul
           variants={staggerContainer}
           initial="hidden"
@@ -71,7 +70,7 @@ const About = () => {
           className="space-y-6"
         >
           {values.map((value, index) => (
-            <motion.li 
+            <motion.li
               key={index}
               variants={staggerItem}
               className="flex items-start gap-4"

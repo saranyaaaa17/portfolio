@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { SectionContainer, SectionHeader } from '../ui';
+import { SectionContainer } from '../ui';
 import { fadeInUp } from '../../utils/motion';
 import { GraduationCap, Calendar, Award } from 'lucide-react';
 
@@ -10,10 +10,9 @@ const Education = () => {
   return (
     <SectionContainer id="education" background="white">
       
-      <SectionHeader 
-        label="Education"
-        title="Academic Journey"
-      />
+
+      {/* Education sub-heading */}
+      <h2 className="text-2xl font-bold text-gray-100 mb-10">Academic Journey</h2>
 
       <div className="space-y-8">
         {educationList.map((edu, index) => (

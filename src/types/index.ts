@@ -11,6 +11,8 @@ export interface Project {
   learnings: string[];
   github: string;
   live: string | null;
+  screenshot?: string;
+  screenshots?: string[];
 }
 
 export interface SkillCategory {
@@ -61,6 +63,7 @@ export interface ThinkingProcessCard {
   title: string;
   summary: string;
   detail: string;
+  icon: LucideIcon;
 }
 
 export interface ContactMethod {

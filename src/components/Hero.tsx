@@ -2,9 +2,51 @@ import { motion } from 'framer-motion';
 import { Download, ArrowRight } from 'lucide-react';
 import Button from './ui/Button';
 import { revealUp, staggerContainer, staggerItem } from '../utils/motion';
-import { MouseEvent } from 'react';
+import React, { MouseEvent, useEffect, useState } from 'react';
+import BackgroundPaths from './ui/BackgroundPaths';
 
 const Hero = () => {
+    // small inline typewriter that cycles short role phrases
+    const Typewriter: React.FC = () => {
+        const roles = ['Machine Learning', 'Full‑Stack Developer', 'Researcher'];
+        const [index, setIndex] = useState(0);
+        const [sub, setSub] = useState('');
+
+        useEffect(() => {
+            let mounted = true;
+            let i = 0;
+            const type = () => {
+                const full = roles[index];
+                if (!mounted) return;
+                if (i <= full.length) {
+                    setSub(full.slice(0, i));
+                    i += 1;
+                    setTimeout(type, 70);
+                } else {
+                    setTimeout(() => {
+                        if (!mounted) return;
+                        // erase
+                        let j = full.length;
+                        const erase = () => {
+                            if (!mounted) return;
+                            if (j >= 0) {
+                                setSub(full.slice(0, j));
+                                j -= 1;
+                                setTimeout(erase, 30);
+                            } else {
+                                setIndex((s) => (s + 1) % roles.length);
+                            }
+                        };
+                        erase();
+                    }, 1100);
+                }
+            };
+            type();
+            return () => { mounted = false };
+        }, [index]);
+
+        return <span className="text-white font-medium">{sub}<span className="animate-pulse">▌</span></span>;
+    };
     const scrollToProjects = (e: MouseEvent) => {
         e.preventDefault();
         const projectsElement = document.getElementById('projects');
@@ -15,6 +57,7 @@ const Hero = () => {
 
     return (
         <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden bg-black py-20">
+            <BackgroundPaths />
             {/* Minimalist Depth Background */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 {/* Optional: Very subtle glow if needed, otherwise pure black */}
@@ -50,7 +93,9 @@ const Hero = () => {
                                 Saranya <span className="text-transparent bg-clip-text bg-gradient-to-b from-blue-400 to-blue-600">Pothina</span>
                             </motion.h1>
                         </div>
-                        
+                        <motion.div variants={staggerItem} className="pt-2">
+                            <p className="text-sm text-gray-300">I build — <Typewriter /></p>
+                        </motion.div>
                     </div>
 
                     {/* Impactful Bio */}
@@ -58,7 +103,11 @@ const Hero = () => {
                         variants={staggerItem}
                         className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-light"
                     >
-                        Developing at the intersection of <span className="text-white font-medium">Machine Learning</span> and <span className="text-white font-medium">Modern Web Architectures</span>. Focused on building reliable, data-driven solutions for the next generation.
+                        Quick-learning CSE student specialising in{' '}
+                        <span className="text-white font-medium">Machine Learning</span>{' '}
+                        and{' '}
+                        <span className="text-white font-medium">Full-Stack Development</span>.
+                        Seeking an entry-level role to apply technical skills and problem-solving in a collaborative team.
                     </motion.p>
 
                     {/* Focused Actions */}

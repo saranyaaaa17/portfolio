@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { SectionContainer, SectionHeader } from '../ui';
+import { SectionContainer } from '../ui';
 import { staggerContainer, staggerItem, viewportConfig } from '../../utils/motion';
 import { Briefcase, Calendar, ExternalLink } from 'lucide-react';
 
@@ -10,10 +10,6 @@ const Experience = () => {
   return (
     <SectionContainer id="experience" background="white">
       
-      <SectionHeader 
-        label="Work Experience"
-        title="Professional Journey"
-      />
 
       {/* Timeline */}
       <motion.div

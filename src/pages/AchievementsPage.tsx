@@ -1,7 +1,7 @@
-import Projects from '../components/Projects';
+import Achievements from '../components/Achievements';
 import { motion } from 'framer-motion';
 
-const ProjectsPage = () => {
+const AchievementsPage = () => {
   return (
     <div className="pt-20 min-h-screen bg-black">
       {/* Page Header */}
@@ -13,7 +13,7 @@ const ProjectsPage = () => {
             transition={{ duration: 0.4 }}
             className="text-xs font-bold text-blue-500 uppercase tracking-[0.3em] mb-4"
           >
-            Selected Work
+            Recognition & Growth
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -21,7 +21,7 @@ const ProjectsPage = () => {
             transition={{ duration: 0.6 }}
             className="text-5xl md:text-7xl font-black text-white tracking-tighter"
           >
-            Projects
+            Achievements
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -29,15 +29,15 @@ const ProjectsPage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-4 text-lg text-gray-400 max-w-2xl"
           >
-            A showcase of projects built at the intersection of machine learning, backend systems, and modern web development.
+            Industry certifications, hackathons, and recognitions earned through continuous learning and community involvement.
           </motion.p>
         </div>
       </div>
 
-      {/* Projects List */}
-      <Projects />
+      {/* Achievements Content */}
+      <Achievements />
     </div>
   );
 };
 
-export default ProjectsPage;
+export default AchievementsPage;
