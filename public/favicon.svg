@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.03"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="48" height="48" rx="10" fill="url(#g1)" />
+
+  <g transform="translate(6,6) scale(0.75)" filter="url(#glow)">
+    <g class="rot" transform-origin="18 18">
+      <rect x="0" y="0" width="12" height="6" rx="1" fill="rgba(255,255,255,0.06)" />
+      <rect x="0" y="14" width="12" height="6" rx="1" fill="rgba(255,255,255,0.06)" />
+      <text x="6" y="18" font-family="Space Grotesk, Inter, sans-serif" font-weight="700" font-size="20" fill="white">SP</text>
+    </g>
+  </g>
+
+  <style>
+    .rot { transform-origin: 18px 18px; animation: r 12s linear infinite; }
+    @keyframes r { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  </style>
+</svg>
