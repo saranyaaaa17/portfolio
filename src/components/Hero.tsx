@@ -72,15 +72,15 @@ const Hero = () => {
                 >
                     {/* Professional Status */}
                     <motion.div variants={staggerItem} className="flex justify-center">
-                        <div className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-md px-4 py-2 rounded-2xl border border-blue-500/10">
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                            </span>
-                            <span className="text-[10px] font-bold text-blue-400 tracking-[0.2em] uppercase">
-                                Available for opportunities 2026
-                            </span>
-                        </div>
+                        <div className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/5">
+                                <span className="relative flex h-2 w-2">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/30 opacity-60"></span>
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                                </span>
+                                <span className="text-[10px] font-bold text-gray-300 tracking-[0.2em] uppercase">
+                                    Available for opportunities 2026
+                                </span>
+                            </div>
                     </motion.div>
 
                     {/* Refined Heading with Mask Reveal */}
@@ -90,7 +90,7 @@ const Hero = () => {
                                 variants={revealUp}
                                 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-[0.9]"
                             >
-                                Saranya <span className="text-transparent bg-clip-text bg-gradient-to-b from-blue-400 to-blue-600">Pothina</span>
+                                Saranya <span className="text-transparent bg-clip-text bg-gradient-to-b from-gray-300 to-white">Pothina</span>
                             </motion.h1>
                         </div>
                         <motion.div variants={staggerItem} className="pt-2">
@@ -120,7 +120,7 @@ const Hero = () => {
                             variant="primary"
                             icon={ArrowRight}
                             iconPosition="right"
-                            className="w-full sm:w-auto px-10 py-4 rounded-xl shadow-[0_20px_40px_rgba(59,130,246,0.2)] hover:shadow-blue-500/40 transition-all duration-500"
+                            className="w-full sm:w-auto px-10 py-4 rounded-xl bg-white text-black font-semibold hover:opacity-95 transition-all duration-300"
                         >
                             Explore Work
                         </Button>
@@ -130,7 +130,7 @@ const Hero = () => {
                             variant="outline"
                             icon={Download}
                             iconPosition="left"
-                            className="w-full sm:w-auto px-10 py-4 rounded-xl border-neutral-800 hover:border-blue-500/40"
+                            className="w-full sm:w-auto px-10 py-4 rounded-xl border-white/10 text-gray-200 hover:border-white/20"
                         >
                             Download CV
                         </Button>

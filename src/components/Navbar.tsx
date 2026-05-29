@@ -53,7 +53,6 @@ const Navbar = () => {
                 <span className="text-sm font-semibold text-white tracking-tight group-hover:text-gray-200 transition-colors">
                   Saranya Pothina
                 </span>
-                <span className="text-xs font-mono text-blue-400">Developer · ML · Engineer</span>
               </div>
             </motion.div>
           </Link>
