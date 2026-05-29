@@ -1,7 +1,14 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, ExternalLink, ChevronDown, Image as ImageIcon, Maximize2 } from 'lucide-react';
+import { Github, ExternalLink, Image as ImageIcon, Maximize2 } from 'lucide-react';
 import Lightbox from './ui/Lightbox';
+import {
+  CardCurtainReveal,
+  CardCurtainRevealBody,
+  CardCurtainRevealFooter,
+  CardCurtainRevealTitle,
+  CardCurtainRevealDescription,
+} from './ui/card-curtain-reveal';
 import { staggerContainer, staggerItem, viewportConfig } from '../utils/motion';
 
 import { projects } from '../data/projects';
@@ -47,58 +54,17 @@ const Projects = () => {
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {projects.map((project) => (
-            <motion.div key={project.id} variants={staggerItem} className="group border border-neutral-800 rounded-2xl overflow-hidden bg-black shadow-sm transition-all">
-              <div className="md:flex">
-                {/* Thumbnail */}
-                <div className="md:w-44 w-full h-40 bg-gradient-to-br from-blue-900/30 to-blue-800/10 flex items-center justify-center overflow-hidden relative">
-                  {project.screenshot ? (
-                    <div
-                      className="w-full h-full"
-                      style={{
-                        backgroundImage: `url(${imageMeta[project.screenshot]?.lqip ?? ''})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                      }}
-                    >
-                      <picture>
-                        {imageMeta[project.screenshot]?.webp && (
-                          <source type="image/webp" srcSet={imageMeta[project.screenshot].webp} />
-                        )}
-                        <img src={project.screenshot} alt={`${project.title} screenshot`} className="w-full h-full object-cover" loading="lazy" decoding="async" />
-                      </picture>
-                    </div>
-                  ) : (
-                    <div className="text-sm text-blue-300 font-medium">Screenshot</div>
-                  )}
-
-                  {/* Hover CTA overlay */}
-                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                    <button onClick={() => openLightbox(project.screenshots ?? project.screenshot, 0, project.id)} className="inline-flex items-center gap-2 px-3 py-2 bg-black/60 text-white rounded-md border border-white/10 hover:bg-black/80">
-                      <ImageIcon className="w-4 h-4" />
-                      Preview
-                    </button>
-                    {project.live ? (
-                      <a href={project.live} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('demo_click', project.id)} className="inline-flex items-center gap-2 px-3 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
-                        <ExternalLink className="w-4 h-4" />
-                        Demo
-                      </a>
-                    ) : (
-                      <button className="inline-flex items-center gap-2 px-3 py-2 bg-white/5 text-gray-200 rounded-md" disabled>
-                        <Maximize2 className="w-4 h-4" />
-                        No demo
-                      </button>
-                    )}
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="flex-1 p-6 md:p-8">
+            <motion.div key={project.id} variants={staggerItem}>
+              <CardCurtainReveal className="group border border-neutral-800 rounded-2xl overflow-hidden bg-black shadow-sm transition-all">
+                <CardCurtainRevealBody>
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
-                      <h4 className="text-2xl font-bold text-gray-100 mb-2 leading-tight">{project.title}</h4>
-                      <p className="text-sm text-gray-300 mb-3 leading-relaxed">{project.summary}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.techStack.slice(0, 6).map((tech, i) => (
+                      <CardCurtainRevealTitle className="text-2xl font-bold text-gray-100 mb-2 leading-tight">{project.title}</CardCurtainRevealTitle>
+                      <CardCurtainRevealDescription>
+                        <p className="text-sm text-gray-300 mb-3 leading-relaxed">{project.summary}</p>
+                      </CardCurtainRevealDescription>
+                      <div className="flex flex-wrap gap-2 mt-2">
+                        {(project.techStack ?? []).slice(0, 6).map((tech, i) => (
                           <span key={i} className="px-2 py-1 bg-white/2 text-gray-200 text-xs rounded-md border border-neutral-800">{tech}</span>
                         ))}
                       </div>
@@ -113,14 +79,27 @@ const Projects = () => {
                     </div>
                   </div>
 
-                  {/* Short expandable details (collapsed by default) */}
                   <div className="mt-4 text-sm text-gray-300">
                     {project.problem && <p className="mb-2"><strong className="text-gray-100">Problem:</strong> {project.problem}</p>}
                     {project.approach && <p className="mb-2"><strong className="text-gray-100">Approach:</strong> {project.approach}</p>}
                   </div>
-                </div>
-              </div>
-              {/* Lightbox (mounted per-project via state) */}
+                </CardCurtainRevealBody>
+
+                <CardCurtainRevealFooter className="mt-auto" onClick={() => openLightbox(project.screenshots ?? project.screenshot, 0, project.id)}>
+                  {project.screenshot ? (
+                    <div className="w-full h-40 bg-neutral-900 flex items-center justify-center overflow-hidden">
+                      <picture>
+                        {imageMeta[project.screenshot]?.webp && (
+                          <source type="image/webp" srcSet={imageMeta[project.screenshot].webp} />
+                        )}
+                        <img src={project.screenshot} alt={`${project.title} screenshot`} className="w-full h-full object-cover" loading="lazy" decoding="async" />
+                      </picture>
+                    </div>
+                  ) : (
+                    <div className="w-full h-40 bg-neutral-900 flex items-center justify-center text-gray-500">No image</div>
+                  )}
+                </CardCurtainRevealFooter>
+              </CardCurtainReveal>
               {lightboxImages && (
                 <Lightbox images={lightboxImages} initialIndex={lightboxIndex} onClose={() => setLightboxImages(null)} />
               )}
