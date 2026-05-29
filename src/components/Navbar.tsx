@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Home, User, Briefcase, Code, Award, Trophy, Mail, Menu, X, FileText } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import DevLogo from './ui/DevLogo';
 
 const Navbar = () => {
   const location = useLocation();
@@ -42,23 +43,18 @@ const Navbar = () => {
           <Link to="/" className="group">
             <motion.div
               whileHover={{ scale: 1.03 }}
-              className="flex items-center"
+              className="flex items-center gap-3"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              <span className="text-xl font-bold text-white tracking-tight group-hover:text-gray-200 transition-colors">
-                Saranya
-              </span>
-              <span
-                className="text-xl font-bold tracking-tight"
-                style={{
-                  background: 'linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
-                .dev
-              </span>
+              <div className="flex items-center justify-center w-9 h-9">
+                <DevLogo size={36} />
+              </div>
+              <div className="flex flex-col leading-tight">
+                <span className="text-sm font-semibold text-white tracking-tight group-hover:text-gray-200 transition-colors">
+                  Saranya Pothina
+                </span>
+                <span className="text-xs font-mono text-blue-400">Developer · ML · Engineer</span>
+              </div>
             </motion.div>
           </Link>
 
