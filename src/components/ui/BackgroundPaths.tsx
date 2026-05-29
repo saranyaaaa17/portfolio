@@ -6,12 +6,12 @@ const BackgroundPaths: React.FC = () => {
             <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1440 800" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="g1" x1="0%" x2="100%" y1="0%" y2="100%">
-                        <stop offset="0%" stopColor="#0ea5e9" stopOpacity="0.12" />
-                        <stop offset="100%" stopColor="#6366f1" stopOpacity="0.08" />
+                        <stop offset="0%" stopColor="#ffffff" stopOpacity="0.08" />
+                        <stop offset="100%" stopColor="#ffffff" stopOpacity="0.03" />
                     </linearGradient>
                     <linearGradient id="g2" x1="0%" x2="100%" y1="0%" y2="100%">
-                        <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.06" />
-                        <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.04" />
+                        <stop offset="0%" stopColor="#ffffff" stopOpacity="0.06" />
+                        <stop offset="100%" stopColor="#ffffff" stopOpacity="0.02" />
                     </linearGradient>
                 </defs>
 
